@@ -108,6 +108,8 @@ html[data-lang="zh"] { --ff: var(--font-zh); --hf: var(--font-zh); }
   .npanel a, .npanel .soon { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 44px; padding: 8px 12px; border-radius: 10px; text-decoration: none; font-size: 16px; }
   .npanel a { font-weight: 700; }
   .npanel a::after { content: "↓"; opacity: .6; font-weight: 500; }
+  .npanel a.page::after { content: "→"; }
+  html[dir="rtl"] .npanel a.page::after { content: "←"; }
   .npanel .soon { cursor: default; }
   .npanel .soon .lb { opacity: .8; }
   .npanel hr { border: 0; border-top: 1px solid var(--line); margin: 4px 8px; }
@@ -218,6 +220,37 @@ html[data-lang="zh"] { --ff: var(--font-zh); --hf: var(--font-zh); }
   .tool-links { display: flex; flex-wrap: wrap; gap: 4px 14px; }
   .tool-links a { font-size: 15px; font-weight: 700; min-height: 32px; display: inline-flex; align-items: center; text-decoration-color: var(--accent); text-underline-offset: 3px; }
   .tool-foot small { font-size: 14px; opacity: .85; }
+
+  .tool-name { text-decoration: none; }
+  .tool-name:hover { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
+
+  /* tool page */
+  .tp-back { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; font-size: 16px; text-decoration-color: var(--accent); text-underline-offset: 4px; }
+  .tp-head { margin-top: 12px; }
+  .tp-head h1 { font-family: var(--font-en-head); font-size: clamp(36px, 5vw, 56px); }
+  .tp-head .sub { font-size: clamp(18px, 2vw, 21px); margin-top: 12px; max-width: 40em; }
+  .tp-review { margin-top: 24px; }
+  .tp-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(24px, 4vw, 48px); margin-top: 32px; align-items: start; }
+  @media (max-width: 900px) { .tp-grid { grid-template-columns: 1fr; } }
+  .tp-main { display: grid; gap: 32px; }
+  .tp-sec h2, .tp-card h2 { font-size: 24px; margin-bottom: 12px; }
+  .tp-list { margin: 0; padding-inline-start: 22px; display: grid; gap: 8px; }
+  .tp-list li::marker { color: var(--accent); }
+  .tp-side { display: grid; gap: 16px; }
+  .tp-card { border: 1px solid var(--line); background: var(--surface); border-radius: 16px; padding: 20px; display: grid; gap: 8px; }
+  .tp-card h2 { font-size: 20px; margin-bottom: 4px; }
+  .tp-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+  .tp-links a { font-weight: 700; font-size: 16px; min-height: 36px; display: inline-flex; align-items: center; text-decoration-color: var(--accent); text-underline-offset: 3px; word-break: break-all; }
+  .tp-sources a { font-weight: 500; font-size: 15px; }
+  .tp-related { margin-top: clamp(48px, 6vw, 72px); }
+
+  /* explore page */
+  .ex-head .sub { font-size: clamp(18px, 2vw, 21px); margin: -12px 0 24px; max-width: 40em; }
+  .ex-filters { display: grid; gap: 16px; margin-bottom: 24px; }
+  .ex-group { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; border: 0; margin: 0; padding: 0; }
+  .ex-group legend { font-weight: 700; font-size: 15px; margin-inline-end: 6px; float: inline-start; }
+  .ex-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 15px; font-weight: 700; }
+  .ex-clear { background: transparent; border: 0; padding: 0 4px; min-height: 44px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
 
   /* empty states, notes */
   .empty { display: grid; gap: 12px; justify-items: start; }

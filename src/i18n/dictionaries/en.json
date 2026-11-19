@@ -179,5 +179,44 @@
   },
   "cta": {
     "title": "Start with a lesson or a tool."
+  },
+  "explore": {
+    "title": "Models & tools",
+    "sub": "Chinese AI models and tools, with license, how to run them and official sources.",
+    "search": "Search by name or company",
+    "runtime": "How it runs",
+    "license": "License",
+    "company": "Company",
+    "all": "All",
+    "clear": "Clear filters",
+    "count": "{n} of {m} shown",
+    "none": "Nothing matches these filters.",
+    "viewAll": "View all models and tools"
+  },
+  "toolPage": {
+    "back": "All models and tools",
+    "reviewTitle": "Needs review",
+    "reviewText": "This page is a draft built from the official sources below. It has not been checked by the editor yet, so treat it as unconfirmed.",
+    "overview": "Overview",
+    "facts": "Key facts",
+    "modalities": "Understands",
+    "modalityNames": {
+      "text": "Text",
+      "image": "Images",
+      "video": "Video"
+    },
+    "useCases": "Use cases",
+    "requirements": "Requirements",
+    "limitations": "Limitations and license terms",
+    "access": "Official links",
+    "related": "From the same company",
+    "relatedOther": "Other models",
+    "company": "Company",
+    "companyNote": "The company page is added after review.",
+    "sources": "Sources",
+    "checked": "Sources read on {d}",
+    "notStated": "Not stated by the source",
+    "playground": "Try it",
+    "playgroundText": "Testing inside ZHI TECH is not available yet. Use the official links above."
   }
 }

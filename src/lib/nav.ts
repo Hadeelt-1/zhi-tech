@@ -5,10 +5,10 @@ export type NavItemKey = keyof Dictionary["nav"]["items"];
 
 /**
  * Main navigation. An item with `section` links to that homepage section;
- * an item without it is not built yet and shows "Coming soon" (not clickable).
- * When a page ships, give the item an `href` to its route instead.
+ * an item with `href` links to that page (path after the language prefix);
+ * an item with neither is not built yet and shows "Coming soon" (not clickable).
  */
-export type NavEntry = { item: NavItemKey; section?: string } | "divider";
+export type NavEntry = { item: NavItemKey; section?: string; href?: string } | "divider";
 
 export const NAV: Record<NavGroup, NavEntry[]> = {
   learn: [
@@ -23,7 +23,7 @@ export const NAV: Record<NavGroup, NavEntry[]> = {
   explore: [
     { item: "cats", section: "categories" },
     { item: "comp", section: "companies" },
-    { item: "tools", section: "tools" },
+    { item: "tools", href: "/explore" },
     "divider",
     { item: "search" },
     { item: "compare" },

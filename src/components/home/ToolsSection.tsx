@@ -51,6 +51,7 @@ export default function ToolsSection({ lang, dict }: { lang: Locale; dict: Dicti
           )}
         </div>
         <p className="note">{t.note}</p>
+        <a className="btn" href={`/${lang}/explore`} style={{ marginTop: 16 }}>{dict.explore.viewAll}</a>
       </Reveal>
     </section>
   );

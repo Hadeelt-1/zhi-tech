@@ -179,5 +179,44 @@
   },
   "cta": {
     "title": "从一节课或一个工具开始。"
+  },
+  "explore": {
+    "title": "模型与工具",
+    "sub": "中国 AI 模型与工具，附许可、运行方式及官方来源。",
+    "search": "按名称或公司搜索",
+    "runtime": "运行方式",
+    "license": "许可",
+    "company": "公司",
+    "all": "全部",
+    "clear": "清除筛选",
+    "count": "显示 {n} / {m}",
+    "none": "没有符合筛选条件的结果。",
+    "viewAll": "查看全部模型与工具"
+  },
+  "toolPage": {
+    "back": "全部模型与工具",
+    "reviewTitle": "待审核",
+    "reviewText": "本页是根据下方官方来源整理的草稿，尚未经编辑审核，请视为未经确认的信息。",
+    "overview": "概览",
+    "facts": "基本信息",
+    "modalities": "可理解",
+    "modalityNames": {
+      "text": "文本",
+      "image": "图像",
+      "video": "视频"
+    },
+    "useCases": "适用场景",
+    "requirements": "使用要求",
+    "limitations": "限制与许可条款",
+    "access": "官方链接",
+    "related": "同一公司",
+    "relatedOther": "其他模型",
+    "company": "公司",
+    "companyNote": "公司页面审核后添加。",
+    "sources": "来源",
+    "checked": "来源读取于 {d}",
+    "notStated": "来源未说明",
+    "playground": "试用",
+    "playgroundText": "暂不支持在 ZHI TECH 内试用，请使用上方官方链接。"
   }
 }

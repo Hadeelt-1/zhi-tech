@@ -68,7 +68,8 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
         const el = document.getElementById(id);
         if (el && el.offsetTop <= y) cur = id;
       });
-      setCurrentGroup(cur ? SECTION_GROUP[cur] ?? null : null);
+      if (/^\/(ar|en|zh)\/explore(\/|$)/.test(pathname)) setCurrentGroup("explore");
+      else setCurrentGroup(cur ? SECTION_GROUP[cur] ?? null : null);
     };
     const onScroll = () => {
       if (!ticking) {
@@ -148,8 +149,8 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
                   {NAV[g].map((entry, i) =>
                     entry === "divider" ? (
                       <hr key={`d${i}`} />
-                    ) : entry.section ? (
-                      <a key={entry.item} href={`/${lang}#${entry.section}`} onClick={closeAll}>
+                    ) : entry.section || entry.href ? (
+                      <a key={entry.item} href={entry.href ? `/${lang}${entry.href}` : `/${lang}#${entry.section}`} onClick={closeAll} className={entry.href ? "page" : undefined}>
                         {dict.nav.items[entry.item]}
                       </a>
                     ) : (
