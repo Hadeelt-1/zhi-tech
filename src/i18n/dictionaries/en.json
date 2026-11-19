@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "title": "ZHI TECH · 志科技",
+    "description": "Learn the Chinese used in tech and AI, then explore, try and build with Chinese and global tools."
+  },
+  "a11y": {
+    "skip": "Skip to content",
+    "menu": "Menu",
+    "navLabel": "Main",
+    "langLabel": "Language",
+    "toDark": "Switch to dark mode",
+    "toLight": "Switch to light mode",
+    "top": "Back to top",
+    "footerNav": "Footer",
+    "home": "ZHI TECH home",
+    "linkedin": "Hadeel Almutairi on LinkedIn"
+  },
+  "nav": {
+    "groups": { "learn": "Learn", "explore": "Explore", "build": "Build" },
+    "soon": "Coming soon",
+    "items": {
+      "quiz": "Quick exercise", "lessons": "Lessons", "vocab": "Vocabulary library", "practice": "Practice", "tutor": "AI tutor", "dict": "My dictionary",
+      "cats": "Categories", "comp": "Companies", "tools": "Models & tools", "search": "Smart search", "compare": "Compare", "agents": "AI agents", "assist": "Discovery assistant",
+      "steps": "How building works", "projects": "Projects", "play": "Playground", "dash": "My dashboard"
+    }
+  },
+  "sections": { "paths": "Two paths", "try": "Try it", "tools": "Tools", "cats": "Categories", "comp": "Companies", "build": "Build" },
+  "hero": {
+    "h1": "Chinese tech, made easy to learn and build with.",
+    "sub": "Learn the Chinese used in tech and AI, then explore, try and build with Chinese and global tools.",
+    "cta1": "Try a lesson",
+    "cta2": "Explore categories",
+    "example": "Example term",
+    "hint": "Tap the card to see the meaning",
+    "prev": "Previous",
+    "next": "Next",
+    "exploreIn": "Explore in",
+    "count": "Term {n} of {m}"
+  },
+  "paths": {
+    "title": "Two paths, one platform",
+    "tab1": "Chinese for Tech & AI",
+    "tab2": "Explore & Build with Chinese AI",
+    "p1d": "Sequential lessons and a searchable vocabulary library, linked to HSK levels.",
+    "p1b": ["Technical vocabulary with pinyin and Arabic", "Exercises and an AI conversation tutor", "Progress, points and badges"],
+    "p2d": "A hub for Chinese models, tools and companies, with a playground and project workspace.",
+    "p2b": ["Smart search, filters and comparison", "Playground only where a real integration exists", "Agents, projects and saved collections"],
+    "link1": "Try a quick exercise",
+    "link2": "Browse the categories"
+  },
+  "quiz": {
+    "title": "Try a quick exercise",
+    "sub": "Five technical terms. Pick the right meaning.",
+    "of": "Question {n} of {m}",
+    "pick": "Choose the meaning",
+    "right": "Correct.",
+    "wrong": "Not quite. The answer is {a}.",
+    "next": "Next question",
+    "see": "See result",
+    "score": "You got {s} of {m}.",
+    "again": "Try again"
+  },
+  "tools": {
+    "title": "Models & tools",
+    "tabs": ["Latest", "Featured", "Most popular"],
+    "empty": "Nothing to show yet",
+    "emptyText": [
+      "New models and tools will be listed here with the date they were last verified.",
+      "Hand-picked tools and projects will appear here after review.",
+      "Rankings will start once the platform has real usage data."
+    ],
+    "badge": "Needs review",
+    "note": "No tool data is shown until it is checked against official sources."
+  },
+  "cats": {
+    "title": "Explore by category",
+    "searchLabel": "Search categories and companies",
+    "noMatch": "No match. Try another word.",
+    "items": ["AI Models", "Developer Tools", "Chinese Apps", "Local AI", "AI Agents & Multi-Agent", "Open Source Projects", "Chinese Tech Companies"],
+    "desc": [
+      "Language, vision and speech models, with license, runtime and requirements shown on each page.",
+      "Tools for coding, testing and shipping, from editors to APIs.",
+      "Chinese apps and services, explained for people outside China.",
+      "Models and tools you can run on your own machine.",
+      "Agent and multi-agent frameworks, with concepts and practical projects.",
+      "Open-source projects, with their licenses checked against official sources.",
+      "Chinese tech companies, with their products, models and developer tools."
+    ],
+    "note": "Entries appear after official-source review."
+  },
+  "comp": {
+    "title": "Explore by company",
+    "items": ["Alibaba", "Tencent", "Baidu", "ByteDance", "Huawei", "DeepSeek"],
+    "detail": "{c}: the company profile is added after review."
+  },
+  "build": {
+    "title": "Build with Chinese AI",
+    "steps": ["Pick a project idea", "Follow a step-by-step tutorial", "Save it to your workspace"],
+    "desc": [
+      "Start from a ready-made idea, such as a chatbot, a study helper or a small agent.",
+      "Each project comes with a tutorial built around a specific Chinese AI tool.",
+      "Keep your projects, notes and experiments organized in one place."
+    ],
+    "back": "Back",
+    "next": "Next"
+  },
+  "cta": { "title": "Start with a lesson or a tool." }
+}

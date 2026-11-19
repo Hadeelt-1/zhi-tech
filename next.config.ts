@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  // Lets the dev server work when opened from this computer's network address too.
+  allowedDevOrigins: ["192.168.56.1"],
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
