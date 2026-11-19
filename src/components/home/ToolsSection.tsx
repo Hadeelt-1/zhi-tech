@@ -5,6 +5,9 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/get-dictionary";
 import { TOOLS } from "@/content/tools";
 import ToolCard from "./ToolCard";
+
+/** How many tools the homepage shows; the rest live on the Explore page. */
+const HOME_LIMIT = 3;
 import Reveal from "@/components/Reveal";
 import { handleTabKeys } from "@/lib/text";
 
@@ -40,7 +43,7 @@ export default function ToolsSection({ lang, dict }: { lang: Locale; dict: Dicti
         <div className="panel" id="tpanel" role="tabpanel" aria-labelledby={`ttab${tab}`} key={tab}>
           {tab === 0 && TOOLS.length > 0 ? (
             <div className="tool-grid">
-              {TOOLS.map((tool) => <ToolCard key={tool.slug} tool={tool} lang={lang} dict={dict} />)}
+              {TOOLS.slice(0, HOME_LIMIT).map((tool) => <ToolCard key={tool.slug} tool={tool} lang={lang} dict={dict} />)}
             </div>
           ) : (
             <div className="empty">
