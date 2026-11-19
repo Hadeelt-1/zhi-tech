@@ -111,17 +111,17 @@
     "license": "الترخيص",
     "runtime": "التشغيل",
     "params": "الحجم",
-    "context": "أقصى طول نص يقرأه",
+    "context": "سعة النص",
     "checked": "قُرئت المصادر بتاريخ {d}",
     "sourcesLabel": "المصادر",
     "runtimes": {
-      "local": "على جهازك",
+      "local": "تشغيل محلي",
       "api": "عبر API",
       "cloud": "سحابي"
     },
     "licenseKinds": {
       "open_source": "مفتوح المصدر",
-      "open_weight": "مفتوح للتحميل",
+      "open_weight": "متاح للتنزيل",
       "proprietary": "مغلق"
     }
   },
