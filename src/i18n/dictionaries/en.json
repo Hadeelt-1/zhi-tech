@@ -40,6 +40,13 @@
       "projects": "Projects",
       "play": "Playground",
       "dash": "My dashboard"
+    },
+    "top": {
+      "home": "Home",
+      "tools": "Models & tools",
+      "companies": "Companies",
+      "learn": "Learn",
+      "build": "Build"
     }
   },
   "sections": {

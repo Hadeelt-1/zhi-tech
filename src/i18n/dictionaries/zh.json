@@ -40,6 +40,13 @@
       "projects": "项目",
       "play": "试用区",
       "dash": "我的面板"
+    },
+    "top": {
+      "home": "首页",
+      "tools": "模型与工具",
+      "companies": "公司",
+      "learn": "学习",
+      "build": "构建"
     }
   },
   "sections": {

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { localeNames, locales, type Locale } from "@/i18n/config";
 import { rememberLocale } from "@/i18n/remember-locale";
 import type { Dictionary } from "@/i18n/get-dictionary";
-import { HOME_SECTIONS, NAV, SECTION_GROUP, type NavGroup } from "@/lib/nav";
+import { currentLink, HOME_SECTIONS, TOP_LINKS } from "@/lib/nav";
 import Logo from "./Logo";
 
 type Mode = "light" | "dark";
@@ -16,20 +16,12 @@ function readMode(): Mode {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
-const Chevron = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
 export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const pathname = usePathname() ?? `/${lang}`;
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openGroup, setOpenGroup] = useState<NavGroup | null>(null);
-  const [currentGroup, setCurrentGroup] = useState<NavGroup | null>(null);
+  const [section, setSection] = useState<string | null>(null);
   const [mode, setMode] = useState<Mode | null>(null);
   const menuBtn = useRef<HTMLButtonElement>(null);
-  const navRef = useRef<HTMLElement>(null);
 
   // Theme: follow the saved choice, otherwise the system setting.
   useEffect(() => {
@@ -57,7 +49,7 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
     setMode(next);
   };
 
-  // Scroll spy: underline the nav group whose section is on screen.
+  // Scroll spy (homepage): which section is on screen.
   useEffect(() => {
     let ticking = false;
     const spy = () => {
@@ -68,8 +60,7 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
         const el = document.getElementById(id);
         if (el && el.offsetTop <= y) cur = id;
       });
-      if (/^\/(ar|en|zh)\/explore(\/|$)/.test(pathname)) setCurrentGroup("explore");
-      else setCurrentGroup(cur ? SECTION_GROUP[cur] ?? null : null);
+      setSection(cur);
     };
     const onScroll = () => {
       if (!ticking) {
@@ -82,24 +73,18 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
     return () => window.removeEventListener("scroll", onScroll);
   }, [pathname]);
 
-  // Close panels/menu on Escape, outside clicks, and when the layout gets wide.
+  // Close the small-screen menu on Escape, outside clicks, and when the layout gets wide.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key !== "Escape") return;
-      if (openGroup) {
-        setOpenGroup(null);
-        navRef.current?.querySelector<HTMLButtonElement>(`[data-g="${openGroup}"] .ntop`)?.focus();
-      } else if (menuOpen) {
+      if (e.key === "Escape" && menuOpen) {
         setMenuOpen(false);
         menuBtn.current?.focus();
       }
     };
     const onClick = (e: MouseEvent) => {
-      const t = e.target as Element;
-      if (!t.closest(".nitem")) setOpenGroup(null);
-      if (!t.closest(".hdr")) setMenuOpen(false);
+      if (!(e.target as Element).closest(".hdr")) setMenuOpen(false);
     };
-    const wide = window.matchMedia("(min-width: 1061px)");
+    const wide = window.matchMedia("(min-width: 1101px)");
     const onWide = () => wide.matches && setMenuOpen(false);
     document.addEventListener("keydown", onKey);
     document.addEventListener("click", onClick);
@@ -109,13 +94,9 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
       document.removeEventListener("click", onClick);
       wide.removeEventListener("change", onWide);
     };
-  }, [openGroup, menuOpen]);
+  }, [menuOpen]);
 
-  const closeAll = () => {
-    setOpenGroup(null);
-    setMenuOpen(false);
-  };
-
+  const current = currentLink(pathname, section);
   // Same page in another language: /ar/explore -> /en/explore
   const rest = pathname.replace(/^\/(ar|en|zh)(?=\/|$)/, "");
 
@@ -129,41 +110,18 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
           </div>
         </a>
 
-        <nav className={`main${menuOpen ? " open" : ""}`} id="main-nav" aria-label={dict.a11y.navLabel} ref={navRef}>
-          {(Object.keys(NAV) as NavGroup[]).map((g) => {
-            const open = openGroup === g;
-            return (
-              <div className={`nitem${open ? " open" : ""}`} data-g={g} key={g}>
-                <button
-                  type="button"
-                  className="ntop"
-                  aria-expanded={open}
-                  aria-controls={`np-${g}`}
-                  aria-current={currentGroup === g ? "true" : undefined}
-                  onClick={() => setOpenGroup(open ? null : g)}
-                >
-                  <span>{dict.nav.groups[g]}</span>
-                  <Chevron />
-                </button>
-                <div className="npanel" id={`np-${g}`}>
-                  {NAV[g].map((entry, i) =>
-                    entry === "divider" ? (
-                      <hr key={`d${i}`} />
-                    ) : entry.section || entry.href ? (
-                      <a key={entry.item} href={entry.href ? `/${lang}${entry.href}` : `/${lang}#${entry.section}`} onClick={closeAll} className={entry.href ? "page" : undefined}>
-                        {dict.nav.items[entry.item]}
-                      </a>
-                    ) : (
-                      <div key={entry.item} className="soon" aria-disabled="true">
-                        <span className="lb">{dict.nav.items[entry.item]}</span>
-                        <span className="pill">{dict.nav.soon}</span>
-                      </div>
-                    ),
-                  )}
-                </div>
-              </div>
-            );
-          })}
+        <nav className={`main${menuOpen ? " open" : ""}`} id="main-nav" aria-label={dict.a11y.navLabel}>
+          {TOP_LINKS.map(({ key, href }) => (
+            <a
+              key={key}
+              className="nlink"
+              href={href.startsWith("#") ? `/${lang}${href}` : `/${lang}${href}`}
+              aria-current={current === key ? "page" : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
+              {dict.nav.top[key]}
+            </a>
+          ))}
         </nav>
 
         <div className="ctl">
@@ -200,10 +158,7 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
             aria-expanded={menuOpen}
             aria-controls="main-nav"
             aria-label={dict.a11y.menu}
-            onClick={() => {
-              setMenuOpen(!menuOpen);
-              if (menuOpen) setOpenGroup(null);
-            }}
+            onClick={() => setMenuOpen(!menuOpen)}
           >
             <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" /></svg>
           </button>
