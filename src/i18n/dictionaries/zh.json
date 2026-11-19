@@ -218,5 +218,16 @@
     "notStated": "来源未说明",
     "playground": "试用",
     "playgroundText": "暂不支持在 ZHI TECH 内试用，请使用上方官方链接。"
+  },
+  "companies": {
+    "title": "中国科技公司",
+    "sub": "ZHI TECH 中各模型背后的公司及其官方链接。",
+    "models": "模型与工具",
+    "count": "模型数量：{n}",
+    "none": "尚未收录该公司的模型。",
+    "links": "官方链接",
+    "back": "全部公司",
+    "all": "全部公司",
+    "review": "本页是根据下方官方来源整理的草稿，尚未经编辑审核。"
   }
 }

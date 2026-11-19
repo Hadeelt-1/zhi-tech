@@ -251,6 +251,8 @@ html[data-lang="zh"] { --ff: var(--font-zh); --hf: var(--font-zh); }
   .tp-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
   .tp-links a { font-weight: 700; font-size: 16px; min-height: 36px; display: inline-flex; align-items: center; text-decoration-color: var(--accent); text-underline-offset: 3px; word-break: break-all; }
   .tp-sources a { font-weight: 500; font-size: 15px; }
+  .tp-company { font-weight: 700; font-size: 17px; min-height: 44px; display: inline-flex; align-items: center; text-decoration-color: var(--accent); text-underline-offset: 4px; }
+  a.chip { display: inline-flex; align-items: center; text-decoration: none; }
   .tp-related { margin-top: clamp(48px, 6vw, 72px); }
 
   /* explore page */

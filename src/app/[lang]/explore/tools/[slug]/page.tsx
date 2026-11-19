@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { getTool, TOOLS, type LocalizedList, type Tool } from "@/content/tools";
+import { getCompany } from "@/content/companies";
 import ToolFacts from "@/components/explore/ToolFacts";
 import ToolCard from "@/components/home/ToolCard";
 import { fmt } from "@/lib/text";
@@ -92,8 +93,17 @@ export default async function ToolPage({ params }: { params: Params }) {
             </section>
             <section className="tp-card">
               <h2>{p.company}</h2>
-              <p lang="en" dir="ltr"><b>{tool.companyName}</b></p>
-              <p className="muted">{p.companyNote}</p>
+              {getCompany(tool.company) ? (
+                <>
+                  <p>{getCompany(tool.company)!.overview[lang]}</p>
+                  <a className="tp-company" href={`/${lang}/explore/companies/${tool.company}`} dir="ltr">{tool.companyName} {lang === "ar" ? "←" : "→"}</a>
+                </>
+              ) : (
+                <>
+                  <p lang="en" dir="ltr"><b>{tool.companyName}</b></p>
+                  <p className="muted">{p.companyNote}</p>
+                </>
+              )}
             </section>
             <section className="tp-card">
               <h2>{p.sources}</h2>

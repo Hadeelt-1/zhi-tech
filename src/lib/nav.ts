@@ -22,7 +22,7 @@ export const NAV: Record<NavGroup, NavEntry[]> = {
   ],
   explore: [
     { item: "cats", section: "categories" },
-    { item: "comp", section: "companies" },
+    { item: "comp", href: "/explore/companies" },
     { item: "tools", href: "/explore" },
     "divider",
     { item: "search" },

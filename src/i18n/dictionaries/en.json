@@ -218,5 +218,16 @@
     "notStated": "Not stated by the source",
     "playground": "Try it",
     "playgroundText": "Testing inside ZHI TECH is not available yet. Use the official links above."
+  },
+  "companies": {
+    "title": "Chinese tech companies",
+    "sub": "Companies behind the models in ZHI TECH, with their official links.",
+    "models": "Models and tools",
+    "count": "Models: {n}",
+    "none": "No models from this company have been added yet.",
+    "links": "Official links",
+    "back": "All companies",
+    "all": "All companies",
+    "review": "This profile is a draft built from the official sources below and has not been checked by the editor yet."
   }
 }
