@@ -51,7 +51,7 @@ export const TOOLS: Tool[] = [
     specs: { parameters: "1.6T total, 49B active (MoE)", contextTokens: "1M" },
     summary: {
       en: "Large mixture-of-experts language model with three reasoning modes, aimed at coding, agent workflows and long documents.",
-      ar: "نموذج لغوي كبير من نوع Mixture-of-Experts بثلاثة أوضاع للتفكير، موجّه للبرمجة ومهام الوكلاء والمستندات الطويلة.",
+      ar: "نموذج لغوي ضخم، فيه ثلاث درجات للتفكير (سريع، متعمّق، أقصى تعمّق). مناسب للبرمجة، والمهام اللي ينفذها الذكاء الاصطناعي بنفسه خطوة بخطوة، والمستندات الطويلة.",
       zh: "大型混合专家（MoE）语言模型，提供三种推理模式，面向编程、智能体工作流与长文档。",
     },
     links: [
@@ -77,7 +77,7 @@ export const TOOLS: Tool[] = [
     specs: { parameters: "2.8T total, 104B active", contextTokens: "1M", modalities: ["text", "image", "video"] },
     summary: {
       en: "Open-weight model that handles text, images and video, built for long coding sessions, research and knowledge work. Large commercial services need a separate agreement under its license.",
-      ar: "نموذج بأوزان مفتوحة يفهم النصوص والصور والفيديو، مصمم لجلسات البرمجة الطويلة والبحث والعمل المعرفي. الخدمات التجارية الكبيرة تحتاج اتفاقية منفصلة حسب ترخيصه.",
+      ar: "نموذج تقدر تحمّله وتشغّله بنفسك، يفهم النصوص والصور والفيديو. مصمم لجلسات البرمجة الطويلة والبحث. الشركات الكبيرة اللي تبيعه كخدمة تحتاج اتفاقية خاصة مع Moonshot حسب ترخيصه.",
       zh: "开放权重模型，可理解文本、图像和视频，面向长时间编程、研究与知识工作。按其许可，大型商业服务需另行签署协议。",
     },
     links: [
@@ -103,7 +103,7 @@ export const TOOLS: Tool[] = [
     specs: { parameters: "754B total" },
     summary: {
       en: "Flagship model for agentic engineering, focused on long multi-step coding and terminal tasks. Can be served locally with common inference engines.",
-      ar: "النموذج الرئيسي لهندسة الوكلاء، يركّز على مهام البرمجة الطويلة متعددة الخطوات والعمل في الطرفية، ويمكن تشغيله محليًا بمحركات الاستدلال الشائعة.",
+      ar: "أقوى نموذج عند Z.ai، مصمم للمهام البرمجية الطويلة اللي فيها خطوات كثيرة، وللعمل في الـ Terminal. تقدر تشغّله على أجهزتك الخاصة بالبرامج المعروفة لتشغيل النماذج.",
       zh: "面向智能体工程的旗舰模型，专注长程、多步骤的编程与终端任务，可用常见推理引擎本地部署。",
     },
     links: [
@@ -126,7 +126,7 @@ export const TOOLS: Tool[] = [
     specs: { parameters: "27B (dense)", contextTokens: "262K (extendable to 1M)", modalities: ["text", "image", "video"] },
     summary: {
       en: "Mid-size multimodal model that understands images and video. Alibaba says it runs on consumer hardware and, quantized, on a laptop. Aimed at coding, research and agent tasks.",
-      ar: "نموذج متوسط الحجم متعدد الوسائط يفهم الصور والفيديو. تقول Alibaba إنه يعمل على أجهزة المستخدمين العادية، وعلى اللابتوب بعد التكميم (quantization). موجّه للبرمجة والبحث ومهام الوكلاء.",
+      ar: "نموذج متوسط الحجم يفهم النصوص والصور والفيديو. تقول Alibaba إنه يشتغل على الأجهزة العادية، ويشتغل حتى على اللابتوب بعد تصغير حجمه. مناسب للبرمجة والبحث.",
       zh: "中等规模的多模态模型，可理解图像和视频。阿里巴巴称其可在消费级硬件上运行，量化后可在笔记本电脑上运行。面向编程、研究与智能体任务。",
     },
     links: [
