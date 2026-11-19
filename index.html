@@ -1,34 +1,593 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ZHI TECH</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ZHI TECH · 志科技</title>
+<meta name="theme-color" content="#EEE5D4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1D4A35" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Tokens mirror tokens.css v2 (kept inline so this page stays a single file) */
+:root{
+  --oat:#EEE5D4;--forest:#1D4A35;--tomato:#F2462E;
+  --bg:var(--oat);--fg:var(--forest);--surface:#1D4A3510;--surface2:#1D4A3520;--line:#1D4A3540;
+  --accent:var(--tomato);--pbg:var(--forest);--pfg:var(--oat);--panel:var(--forest);--panelfg:var(--oat);
+  --sel:#F2462E40;
+  --shadow-brand:4px 4px 0 var(--tomato);
+  --ff:'IBM Plex Sans',system-ui,sans-serif;--hf:'Space Grotesk','IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:var(--forest);--fg:var(--oat);--surface:#EEE5D41a;--surface2:#EEE5D42a;--line:#EEE5D455;--pbg:var(--oat);--pfg:var(--forest);--panel:var(--oat);--panelfg:var(--forest);--sel:#F2462E59;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:var(--forest);--fg:var(--oat);--surface:#EEE5D41a;--surface2:#EEE5D42a;--line:#EEE5D455;--pbg:var(--oat);--pfg:var(--forest);--panel:var(--oat);--panelfg:var(--forest);--sel:#F2462E59;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(88px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%;accent-color:var(--fg);scrollbar-color:var(--line) var(--bg)}
+html[data-lang="ar"]{--ff:'IBM Plex Sans Arabic',system-ui,sans-serif;--hf:'IBM Plex Sans Arabic',system-ui,sans-serif}
+html[data-lang="zh"]{--ff:'Noto Sans SC','IBM Plex Sans',system-ui,sans-serif;--hf:'Noto Sans SC',system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+::selection{background:var(--sel);color:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--ff);font-size:18px;line-height:1.65;font-weight:500;transition:background .3s,color .3s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+h1,h2,h3{font-family:var(--hf);line-height:1.2;margin:0;font-weight:700}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+#skip:focus{inset-inline-start:12px!important;top:12px;z-index:100;background:var(--pbg);color:var(--pfg);padding:10px 16px;border-radius:8px}
+:focus-visible{outline:3px solid var(--fg);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(20px,4vw,40px)}
+section{padding-block:clamp(56px,8vw,96px)}
+.sec-title{font-size:clamp(28px,3.6vw,40px);margin-bottom:28px}
+/* header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line);transition:background .3s}
+.hdr .wrap{display:flex;align-items:center;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
+.brand .nm{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;letter-spacing:1.5px;line-height:1.15}
+.brand .nm span{display:block;font-family:'Noto Sans SC',sans-serif;letter-spacing:2px}
+nav.main{display:flex;gap:4px;margin-inline-start:auto;align-items:center}
+nav.main a{text-decoration:none;padding:10px 12px;border-radius:8px;font-size:16px;min-height:44px;display:inline-flex;align-items:center;border-bottom:3px solid transparent;transition:background .2s}
+@media (hover:hover){nav.main a:hover{background:var(--surface2)}}
+nav.main a[aria-current="true"]{border-bottom-color:var(--accent);font-weight:700}
+.ctl{display:flex;gap:8px;align-items:center;flex:none}
+.seg{display:flex;border:1.5px solid var(--fg);border-radius:10px;overflow:hidden}
+.seg button{background:transparent;border:0;padding:0 12px;min-height:44px;font-size:15px;font-weight:700}
+.seg button[aria-pressed="true"]{background:var(--pbg);color:var(--pfg)}
+.ibtn{width:44px;height:44px;border-radius:10px;border:1.5px solid var(--fg);background:transparent;display:inline-flex;align-items:center;justify-content:center}
+@media (hover:hover){.ibtn:hover,.seg button[aria-pressed="false"]:hover{background:var(--surface2)}}
+.ibtn .moon{display:none}
+:root[data-mode="dark"] .ibtn .sunico{display:none}
+:root[data-mode="dark"] .ibtn .moon{display:block}
+.menu-btn{display:none}
+@media (max-width:1060px){
+  .menu-btn{display:inline-flex}
+  nav.main{display:none;position:absolute;inset-inline:0;top:100%;flex-direction:column;align-items:stretch;background:var(--bg);border-bottom:1px solid var(--line);padding:12px clamp(20px,4vw,40px) 20px;margin:0;box-shadow:0 12px 24px -16px #00000040}
+  nav.main.open{display:flex}
+  nav.main a{border-bottom:0;border-inline-start:4px solid transparent}
+  nav.main a[aria-current="true"]{border-inline-start-color:var(--accent)}
+  .hdr .wrap{justify-content:space-between}
+  .ctl{margin-inline-start:auto}
+}
+@media (max-width:520px){.brand .nm{display:none}.seg button{padding:0 9px}}
+/* buttons: hover echoes the logo's Tomato offset shadow (no text on Tomato) */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:12px;font-weight:700;font-size:17px;text-decoration:none;border:2px solid var(--fg);background:transparent;transition:transform .2s,background .2s,color .2s,box-shadow .2s}
+.btn.pri{background:var(--pbg);color:var(--pfg)}
+@media (hover:hover){.btn:not(:disabled):hover{transform:translate(-2px,-2px);box-shadow:var(--shadow-brand)}.btn:not(.pri):not(:disabled):hover{background:var(--surface2)}}
+.btn:not(:disabled):active{transform:none;box-shadow:none}
+/* hero */
+.hero{padding-block:clamp(48px,7vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(36px,5.4vw,64px);letter-spacing:-.5px}
+html[data-lang="ar"] .hero h1,html[data-lang="ar"] h1{letter-spacing:0}
+.hero p.sub{font-size:clamp(18px,2vw,21px);margin-top:20px;max-width:34em}
+.hero .acts{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.tcard{background:var(--panel);color:var(--panelfg);border-radius:24px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px;min-height:380px;box-shadow:8px 8px 0 var(--tomato);transition:background .3s,color .3s}
+.tcard .top{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700}
+.tcard .top .ct{border-bottom:3px solid var(--accent);padding-bottom:3px}
+.tflip{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;background:transparent;border:0;text-align:start;padding:0;color:inherit;border-radius:12px}
+.tcard :focus-visible{outline-color:var(--panelfg)}
+.tflip .zh{font-family:'Noto Sans SC',sans-serif;font-size:clamp(48px,6vw,76px);font-weight:700;line-height:1.1}
+.tflip .rev{display:grid;gap:4px;font-size:19px;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;min-height:96px}
+.tflip[aria-expanded="true"] .rev{opacity:1;transform:none}
+.tflip .hint{font-size:15px;opacity:.85}
+.tflip[aria-expanded="true"] .hint{display:none}
+.tflip .py{font-size:20px}
+.tflip .arx{font-size:24px;font-weight:700}
+.tnav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.tnav .sm{min-height:44px;padding:0 16px;border-radius:10px;border:1.5px solid var(--panelfg);background:transparent;font-weight:700;font-size:15px}
+@media (hover:hover){.tnav .sm:hover{background:var(--panelfg);color:var(--panel)}}
+.dots{display:flex;gap:8px}
+.dots i{width:9px;height:9px;border-radius:50%;background:var(--panelfg);opacity:.35;transition:opacity .2s,transform .2s}
+.dots i.on{opacity:1;transform:scale(1.3);background:var(--accent)}
+.tlink{font-weight:700;font-size:16px;min-height:24px}
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tab{min-height:52px;padding:0 22px;border-radius:12px;border:2px solid var(--fg);background:transparent;font-weight:700;font-size:17px;transition:background .2s,color .2s}
+.tab[aria-selected="true"]{background:var(--pbg);color:var(--pfg)}
+@media (hover:hover){.tab[aria-selected="false"]:hover{background:var(--surface2)}}
+.panel{border:1px solid var(--line);background:var(--surface);border-radius:20px;padding:clamp(24px,3.5vw,40px);animation:fade .35s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+@media (max-width:820px){.pgrid{grid-template-columns:1fr}}
+.pgrid h3{font-size:clamp(24px,2.8vw,32px);margin-bottom:12px}
+.feat{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.feat li{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--bg);transition:transform .2s,border-color .2s}
+.feat li b{flex:none;width:32px;height:32px;border-radius:50%;border:2.5px solid var(--accent);color:var(--fg);display:inline-flex;align-items:center;justify-content:center;font-size:15px}
+@media (hover:hover){.feat li:hover{transform:translateX(4px);border-color:var(--fg)}html[dir="rtl"] .feat li:hover{transform:translateX(-4px)}}
+.hintlink{display:inline-block;margin-top:20px;font-weight:700;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:4px}
+/* quiz */
+.quiz{max-width:760px;margin-inline:auto;border:1px solid var(--line);background:var(--surface);border-radius:24px;padding:clamp(24px,4vw,44px)}
+.qmeta{display:flex;justify-content:space-between;font-size:15px;font-weight:700;margin-bottom:12px}
+.bar{height:8px;border-radius:99px;background:var(--surface2);overflow:hidden;margin-bottom:24px}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .4s}
+.qterm{font-family:'Noto Sans SC',sans-serif;font-size:clamp(44px,6vw,68px);font-weight:700;line-height:1.1}
+.qpy{font-size:19px;margin:4px 0 20px}
+.opts{display:grid;gap:12px}
+.opt{min-height:56px;text-align:start;padding:12px 18px;border-radius:12px;border:2px solid var(--fg);background:var(--bg);font-weight:700;font-size:18px;transition:transform .2s,background .2s}
+@media (hover:hover){.opt:not(:disabled):hover{transform:translateX(4px);background:var(--surface2)}html[dir="rtl"] .opt:not(:disabled):hover{transform:translateX(-4px)}}
+.opt.ok{background:var(--pbg);color:var(--pfg)}
+.opt.bad{border-style:dashed;border-color:var(--accent)}
+.opt:disabled{cursor:default}
+.fb{min-height:32px;margin-top:16px;font-weight:700}
+.qres{text-align:center;display:grid;gap:16px;justify-items:center}
+.qres .big{font-family:var(--hf);font-size:clamp(40px,6vw,64px);font-weight:700}
+/* empty */
+.empty{display:grid;gap:12px;justify-items:start}
+.empty .bd,.pill{display:inline-block;border:1.5px solid var(--accent);border-radius:99px;padding:2px 12px;font-size:14px;font-weight:700}
+.note{font-size:15px;margin-top:16px}
+/* chips */
+.search{width:100%;max-width:520px;min-height:52px;border-radius:12px;border:2px solid var(--fg);background:var(--bg);color:var(--fg);padding:0 16px;font:inherit;font-size:17px;margin-bottom:20px}
+.search::placeholder{color:var(--fg);opacity:.7}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{min-height:46px;padding:0 18px;border-radius:99px;border:1.5px solid var(--fg);background:transparent;font-weight:500;font-size:16px;transition:background .2s,transform .2s}
+.chip[aria-pressed="true"]{background:var(--pbg);color:var(--pfg);font-weight:700}
+@media (hover:hover){.chip:hover{transform:translateY(-2px);background:var(--surface2)}.chip[aria-pressed="true"]:hover{background:var(--pbg)}}
+.detail{margin-top:20px;border-inline-start:5px solid var(--accent);padding:12px 18px;background:var(--surface);border-start-start-radius:0;border-end-start-radius:0;border-start-end-radius:12px;border-end-end-radius:12px;min-height:72px}
+.detail b{display:block;font-size:20px}
+/* steps */
+.steps{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:10px;min-height:48px;padding-block:0;padding-inline:8px 16px;border-radius:99px;border:1.5px solid var(--fg);background:transparent;font-weight:700;font-size:16px}
+.step span{width:32px;height:32px;border-radius:50%;background:var(--surface2);border:2.5px solid transparent;display:inline-flex;align-items:center;justify-content:center}
+.step[aria-selected="true"]{background:var(--pbg);color:var(--pfg)}
+.step[aria-selected="true"] span{background:transparent;border-color:var(--accent)}
+@media (hover:hover){.step[aria-selected="false"]:hover{background:var(--surface2)}}
+.snav{display:flex;gap:12px;margin-top:24px}
+.snav .btn{min-height:48px}
+.snav .btn:disabled{opacity:.4;cursor:default;transform:none}
+/* cta + footer */
+.cta{background:var(--panel);color:var(--panelfg);transition:background .3s,color .3s}
+.cta .wrap{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta h2{font-size:clamp(28px,3.6vw,42px)}
+.cta .btn{border-color:var(--panelfg);color:var(--panelfg)}
+.cta .btn.pri{background:var(--panelfg);color:var(--panel)}
+.cta :focus-visible{outline-color:var(--panelfg)}
+@media (hover:hover){.cta .btn:not(.pri):hover{background:var(--panelfg);color:var(--panel)}}
+footer{border-top:1px solid var(--line);padding-block:28px}
+.sig{display:flex;flex-direction:column;align-items:center;gap:16px}
+.crow{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.sun{width:56px;height:22px;overflow:visible}
+.sun .rise{transform:translateY(30px);transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.sig.in .sun .rise{transform:none}
+.sun .rays{opacity:0;transform-origin:75px 56px;transition:opacity .8s .5s}
+.sig.in .sun .rays{opacity:1}
+.crow .txt{font-size:16px;font-weight:700}
+.crow .txt b{font-family:'Space Grotesk',sans-serif;font-size:18px}
+.lnk{width:44px;height:44px;border-radius:50%;background:var(--pbg);color:var(--pfg);display:inline-flex;align-items:center;justify-content:center;text-decoration:none;transition:box-shadow .25s,transform .3s}
+@media (hover:hover){.lnk:hover{box-shadow:3px 3px 0 var(--tomato);transform:rotate(-10deg) scale(1.08)}}
+.lnk:active{transform:scale(.95)}
+.fnav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 8px;padding-top:14px;border-top:1px solid var(--line);width:100%}
+.fnav a{padding:0 14px;min-height:44px;display:inline-flex;align-items:center;border-radius:8px;text-decoration:none;font-size:15px;border-bottom:3px solid transparent;transition:background .2s,border-color .2s}
+@media (hover:hover){.fnav a:hover{background:var(--surface2);border-bottom-color:var(--accent)}}
+.totop{position:fixed;inset-inline-end:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:52px;height:52px;border-radius:50%;border:2px solid var(--pbg);background:var(--pbg);color:var(--pfg);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .25s,transform .25s,box-shadow .2s;z-index:55}
+.totop.show{opacity:1;pointer-events:auto;transform:none}
+@media (hover:hover){.totop.show:hover{box-shadow:var(--shadow-brand)}}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.js .rv{opacity:1;transform:none}
+}
+@media (forced-colors:active){.tcard,.btn,.lnk{box-shadow:none}.dots i.on,.bar i{background:Highlight}}
+</style>
 </head>
-
 <body>
+<a href="#main" id="skip" style="position:absolute;inset-inline-start:-999px">Skip to content</a>
+<header class="hdr" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="ZHI TECH 志科技">
+      <svg viewBox="0 0 60 60" width="44" height="44" aria-hidden="true" focusable="false">
+        <text x="33" y="50" font-size="30" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-weight="700" fill="#F2462E">科</text>
+        <text x="29" y="46" font-size="30" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-weight="700" fill="currentColor">科</text>
+        <path d="M6 54H54M30 13V5M16 16L11 10M44 16L49 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="nm">ZHI TECH<span>志科技</span></div>
+    </a>
+    <nav class="main" id="nav" aria-label="Main">
+      <a href="#paths" data-i18n="nav_paths"></a>
+      <a href="#try" data-i18n="nav_try"></a>
+      <a href="#tools" data-i18n="nav_tools"></a>
+      <a href="#categories" data-i18n="nav_cats"></a>
+      <a href="#companies" data-i18n="nav_comp"></a>
+      <a href="#build" data-i18n="nav_build"></a>
+    </nav>
+    <div class="ctl">
+      <div class="seg" role="group" aria-label="Language">
+        <button type="button" data-l="ar" lang="ar" aria-pressed="false">العربية</button>
+        <button type="button" data-l="en" lang="en" aria-pressed="true">English</button>
+        <button type="button" data-l="zh" lang="zh-Hans" aria-pressed="false">中文</button>
+      </div>
+      <button class="ibtn" id="themeBtn" type="button" aria-label="Switch theme">
+        <svg class="sunico" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="moon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="ibtn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-    <main>
-        <!-- هنا بتجي الصفحة الرئيسية لاحقًا -->
-    </main>
+<main id="main">
+<section class="hero" id="hero" style="padding-top:clamp(40px,6vw,80px)">
+  <div class="wrap">
+    <div class="rv">
+      <h1 data-i18n="h1"></h1>
+      <p class="sub" data-i18n="sub"></p>
+      <div class="acts">
+        <a class="btn pri" href="#try" data-i18n="cta1"></a>
+        <a class="btn" href="#categories" data-i18n="cta2"></a>
+      </div>
+    </div>
+    <div class="tcard rv" id="tcard">
+      <div class="top"><span class="ct" data-i18n="ex"></span><span id="tcount"></span></div>
+      <button class="tflip" id="tflip" type="button" aria-expanded="false">
+        <span class="zh" id="tzh" lang="zh-Hans"></span>
+        <span class="hint" data-i18n="term_hint"></span>
+        <span class="rev"><span class="py" id="tpy"></span><span class="arx" id="tar" dir="rtl" lang="ar"></span><span id="ten" lang="en"></span></span>
+      </button>
+      <a class="tlink" id="tlink" href="#categories" hidden></a>
+      <div class="tnav">
+        <button class="sm" id="tprev" type="button" data-i18n="term_prev"></button>
+        <div class="dots" id="tdots" aria-hidden="true"></div>
+        <button class="sm" id="tnext" type="button" data-i18n="term_next"></button>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer class="site-footer">
-        <div class="site-footer__inner">
-            <p class="creator">
-                <span>Created by Hadeel Almutairi</span>
-                <a class="creator__link" href="https://www.linkedin.com/in/hadeel-almutairi-1b5a58290/" target="_blank"
-                    rel="noopener noreferrer" aria-label="Hadeel Almutairi on LinkedIn">
-                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-                        <path fill="currentColor"
-                            d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
-                    </svg>
-                </a>
-            </p>
-        </div>
-    </footer>
+<section id="paths">
+  <div class="wrap rv">
+    <h2 class="sec-title" data-i18n="paths_title"></h2>
+    <div class="tabs" role="tablist" id="ptabs">
+      <button class="tab" role="tab" id="ptab1" aria-selected="true" aria-controls="ppanel" data-i="0" data-i18n="tab1"></button>
+      <button class="tab" role="tab" id="ptab2" aria-selected="false" aria-controls="ppanel" data-i="1" data-i18n="tab2"></button>
+    </div>
+    <div class="panel" id="ppanel" role="tabpanel" aria-labelledby="ptab1"></div>
+  </div>
+</section>
 
+<section id="try">
+  <div class="wrap rv">
+    <h2 class="sec-title" data-i18n="try_title"></h2>
+    <p style="margin:-12px 0 24px;max-width:36em" data-i18n="try_sub"></p>
+    <div class="quiz" id="quiz"></div>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap rv">
+    <h2 class="sec-title" data-i18n="tools_title"></h2>
+    <div class="tabs" role="tablist" id="ttabs">
+      <button class="tab" role="tab" id="ttab0" aria-selected="true" aria-controls="tpanel" data-i="0" data-i18n="tab_latest"></button>
+      <button class="tab" role="tab" id="ttab1" aria-selected="false" aria-controls="tpanel" data-i="1" data-i18n="tab_featured"></button>
+      <button class="tab" role="tab" id="ttab2" aria-selected="false" aria-controls="tpanel" data-i="2" data-i18n="tab_popular"></button>
+    </div>
+    <div class="panel" id="tpanel" role="tabpanel" aria-labelledby="ttab0"></div>
+    <p class="note" data-i18n="tools_note"></p>
+  </div>
+</section>
+
+<section id="categories">
+  <div class="wrap rv">
+    <h2 class="sec-title" data-i18n="cats_title"></h2>
+    <label for="q" class="note" style="display:block;margin:-8px 0 8px;font-weight:700" data-i18n="search_label"></label>
+    <input class="search" id="q" type="search" autocomplete="off">
+    <div class="chips" id="cats" role="group"></div>
+    <div class="detail" id="catd" aria-live="polite"></div>
+    <p class="note" id="nomatch" hidden></p>
+  </div>
+</section>
+
+<section id="companies" style="padding-top:0">
+  <div class="wrap rv">
+    <h2 class="sec-title" data-i18n="comp_title"></h2>
+    <div class="chips" id="comps" role="group"></div>
+    <div class="detail" id="compd" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="build">
+  <div class="wrap rv">
+    <h2 class="sec-title" data-i18n="build_title"></h2>
+    <div class="steps" role="tablist" id="steps"></div>
+    <div class="panel" id="spanel" role="tabpanel"></div>
+    <div class="snav">
+      <button class="btn" id="sback" type="button" data-i18n="back"></button>
+      <button class="btn pri" id="snext" type="button" data-i18n="next"></button>
+    </div>
+  </div>
+</section>
+
+<section class="cta" style="padding-block:clamp(48px,6vw,72px)">
+  <div class="wrap">
+    <h2 data-i18n="cta_title"></h2>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a class="btn pri" href="#try" data-i18n="cta1"></a>
+      <a class="btn" href="#categories" data-i18n="cta2"></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="sig rv">
+      <div class="crow" dir="ltr">
+        <svg class="sun" viewBox="0 0 150 60" aria-hidden="true" focusable="false">
+          <g class="rays" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M105.8 41.6L116.7 36.6"/><path d="M94.5 28.1L101.4 18.3"/><path d="M75.0 22.0L75.0 10.0"/><path d="M55.5 28.1L48.6 18.3"/><path d="M44.2 41.6L33.3 36.6"/></g>
+          <g clip-path="url(#hz)"><g class="rise"><path d="M45 56A30 30 0 0 1 105 56Z" fill="#F2462E"/></g></g>
+          <clipPath id="hz"><rect x="0" y="0" width="150" height="56"/></clipPath>
+          <path d="M8 56H142" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span class="txt" lang="en">Created by <b>Hadeel Almutairi</b></span>
+        <a class="lnk" href="https://www.linkedin.com/in/hadeel-almutairi-1b5a58290/" target="_blank" rel="noopener noreferrer" aria-label="Hadeel Almutairi on LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      </div>
+      <nav class="fnav" aria-label="Footer"><a href="#paths" data-i18n="nav_paths"></a><a href="#try" data-i18n="nav_try"></a><a href="#tools" data-i18n="nav_tools"></a><a href="#categories" data-i18n="nav_cats"></a><a href="#companies" data-i18n="nav_comp"></a><a href="#build" data-i18n="nav_build"></a></nav>
+    </div>
+  </div>
+</footer>
+<button class="totop" id="totop" type="button" aria-label="Back to top">
+  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script>
+(function(){
+document.documentElement.classList.add('js');
+var I={
+en:{skip:"Skip to content",nav_paths:"Two paths",nav_try:"Try it",nav_tools:"Tools",nav_cats:"Categories",nav_comp:"Companies",nav_build:"Build",navlbl:"Main",langlbl:"Language",
+h1:"Chinese tech, made easy to learn and build with.",sub:"Learn the Chinese used in tech and AI, then explore, try and build with Chinese and global tools.",
+cta1:"Try a lesson",cta2:"Explore categories",ex:"Example term",term_hint:"Tap the card to see the meaning",term_prev:"Previous",term_next:"Next",explore_in:"Explore in",
+paths_title:"Two paths, one platform",tab1:"Chinese for Tech & AI",tab2:"Explore & Build with Chinese AI",
+p1d:"Sequential lessons and a searchable vocabulary library, linked to HSK levels.",p1b:["Technical vocabulary with pinyin and Arabic","Exercises and an AI conversation tutor","Progress, points and badges"],
+p2d:"A hub for Chinese models, tools and companies, with a playground and project workspace.",p2b:["Smart search, filters and comparison","Playground only where a real integration exists","Agents, projects and saved collections"],
+h1l:"Try a quick exercise",h2l:"Browse the categories",
+try_title:"Try a quick exercise",try_sub:"Five technical terms. Pick the right meaning.",qof:"Question {n} of {m}",pick:"Choose the meaning",right:"Correct.",wrong:"Not quite. The answer is {a}.",nextq:"Next question",see:"See result",score:"You got {s} of {m}.",again:"Try again",
+tools_title:"Models & tools",tab_latest:"Latest",tab_featured:"Featured",tab_popular:"Most popular",empty:"Nothing to show yet",
+e0:"New models and tools will be listed here with the date they were last verified.",e1:"Hand-picked tools and projects will appear here after review.",e2:"Rankings will start once the platform has real usage data.",badge:"Needs review",
+tools_note:"No tool data is shown until it is checked against official sources.",
+cats_title:"Explore by category",search_label:"Search categories and companies",nomatch:"No match. Try another word.",
+cats:["AI Models","Developer Tools","Chinese Apps","Local AI","AI Agents & Multi-Agent","Open Source Projects","Chinese Tech Companies"],
+catd:["Language, vision and speech models, with license, runtime and requirements shown on each page.","Tools for coding, testing and shipping, from editors to APIs.","Chinese apps and services, explained for people outside China.","Models and tools you can run on your own machine.","Agent and multi-agent frameworks, with concepts and practical projects.","Open-source projects, with their licenses checked against official sources.","Chinese tech companies, with their products, models and developer tools."],
+catnote:"Entries appear after official-source review.",
+comp_title:"Explore by company",coms:["Alibaba","Tencent","Baidu","ByteDance","Huawei","DeepSeek"],compd:"{c}: the company profile is added after review.",
+build_title:"Build with Chinese AI",st:["Pick a project idea","Follow a step-by-step tutorial","Save it to your workspace"],
+sd:["Start from a ready-made idea, such as a chatbot, a study helper or a small agent.","Each project comes with a tutorial built around a specific Chinese AI tool.","Keep your projects, notes and experiments organized in one place."],back:"Back",next:"Next",
+cta_title:"Start with a lesson or a tool.",to_dark:"Switch to dark mode",to_light:"Switch to light mode",menu:"Menu",top:"Back to top",termsel:"Term {n} of {m}"},
+ar:{skip:"تخطَّ إلى المحتوى",nav_paths:"المساران",nav_try:"جرّب",nav_tools:"الأدوات",nav_cats:"الفئات",nav_comp:"الشركات",nav_build:"ابنِ",navlbl:"القائمة الرئيسية",langlbl:"اللغة",
+h1:"التقنية الصينية، أسهل في التعلّم والبناء.",sub:"تعلّم الصينية المستخدمة في التقنية والذكاء الاصطناعي، ثم استكشف الأدوات الصينية والعالمية وجرّبها وابنِ بها.",
+cta1:"جرّب درسًا",cta2:"استكشف الفئات",ex:"مثال على مصطلح",term_hint:"اضغط على البطاقة لترى المعنى",term_prev:"السابق",term_next:"التالي",explore_in:"استكشف في",
+paths_title:"مساران، منصة واحدة",tab1:"اللغة الصينية للتقنية والذكاء الاصطناعي",tab2:"استكشف وابنِ بالذكاء الاصطناعي الصيني",
+p1d:"دروس متسلسلة ومكتبة مصطلحات قابلة للبحث، مرتبطة بمستويات HSK.",p1b:["مصطلحات تقنية مع البينيين والترجمة العربية","تمارين ومدرّس محادثة بالذكاء الاصطناعي","التقدّم والنقاط والشارات"],
+p2d:"مركز للنماذج والأدوات والشركات الصينية، مع ساحة تجربة ومساحة مشاريع.",p2b:["بحث ذكي وفلاتر ومقارنة","تجربة مباشرة فقط حيث يتوفر تكامل فعلي","وكلاء ومشاريع ومجموعات محفوظة"],
+h1l:"جرّب تمرينًا سريعًا",h2l:"تصفّح الفئات",
+try_title:"جرّب تمرينًا سريعًا",try_sub:"خمسة مصطلحات تقنية. اختر المعنى الصحيح.",qof:"السؤال {n} من {m}",pick:"اختر المعنى",right:"إجابة صحيحة.",wrong:"ليست صحيحة. الإجابة هي {a}.",nextq:"السؤال التالي",see:"عرض النتيجة",score:"حصلت على {s} من {m}.",again:"حاول مرة أخرى",
+tools_title:"النماذج والأدوات",tab_latest:"الأحدث",tab_featured:"المميزة",tab_popular:"الأكثر استخدامًا",empty:"لا يوجد شيء لعرضه بعد",
+e0:"ستُعرض هنا النماذج والأدوات الجديدة مع تاريخ آخر تحقق منها.",e1:"ستظهر هنا أدوات ومشاريع مختارة بعد مراجعتها.",e2:"سيبدأ الترتيب عندما تتوفر للمنصة بيانات استخدام حقيقية.",badge:"قيد المراجعة",
+tools_note:"لا تُعرض بيانات الأدوات إلا بعد التحقق منها من المصادر الرسمية.",
+cats_title:"استكشف حسب الفئة",search_label:"ابحث في الفئات والشركات",nomatch:"لا توجد نتائج. جرّب كلمة أخرى.",
+cats:["نماذج الذكاء الاصطناعي","أدوات المطورين","تطبيقات صينية","الذكاء الاصطناعي المحلي","الوكلاء ومتعددو الوكلاء","مشاريع مفتوحة المصدر","شركات التقنية الصينية"],
+catd:["نماذج اللغة والرؤية والصوت، مع الترخيص ونوع التشغيل والمتطلبات في كل صفحة.","أدوات للبرمجة والاختبار والنشر، من المحررات إلى واجهات API.","تطبيقات وخدمات صينية، مشروحة لمن هم خارج الصين.","نماذج وأدوات يمكن تشغيلها على جهازك.","أطر الوكلاء ومتعددي الوكلاء، مع المفاهيم والمشاريع العملية.","مشاريع مفتوحة المصدر، مع التحقق من تراخيصها من المصادر الرسمية.","شركات التقنية الصينية ومنتجاتها ونماذجها وأدواتها."],
+catnote:"تظهر العناصر بعد المراجعة من المصادر الرسمية.",
+comp_title:"استكشف حسب الشركة",coms:["Alibaba","Tencent","Baidu","ByteDance","Huawei","DeepSeek"],compd:"{c}: تُضاف صفحة الشركة بعد المراجعة.",
+build_title:"ابنِ بالذكاء الاصطناعي الصيني",st:["اختر فكرة مشروع","اتبع شرحًا خطوة بخطوة","احفظه في مساحتك"],
+sd:["ابدأ من فكرة جاهزة، مثل روبوت محادثة أو مساعد دراسة أو وكيل صغير.","لكل مشروع شرح مبني على أداة ذكاء اصطناعي صينية محددة.","احتفظ بمشاريعك وملاحظاتك وتجاربك منظمة في مكان واحد."],back:"السابق",next:"التالي",
+cta_title:"ابدأ بدرس أو أداة.",to_dark:"التبديل إلى الوضع الداكن",to_light:"التبديل إلى الوضع الفاتح",menu:"القائمة",top:"العودة للأعلى",termsel:"المصطلح {n} من {m}"},
+zh:{skip:"跳到内容",nav_paths:"两条路径",nav_try:"试一试",nav_tools:"工具",nav_cats:"类别",nav_comp:"公司",nav_build:"构建",navlbl:"主导航",langlbl:"语言",
+h1:"让中国科技更容易学习与实践。",sub:"学习科技与人工智能领域的中文，再去探索、试用并用中外工具构建项目。",
+cta1:"试一节课",cta2:"探索类别",ex:"示例术语",term_hint:"点击卡片查看含义",term_prev:"上一个",term_next:"下一个",explore_in:"前往",
+paths_title:"两条路径，一个平台",tab1:"科技与人工智能中文",tab2:"探索并用中国 AI 构建",
+p1d:"循序渐进的课程与可搜索的词汇库，对应 HSK 等级。",p1b:["含拼音与阿拉伯语翻译的技术词汇","练习与 AI 对话导师","进度、积分与徽章"],
+p2d:"汇集中国模型、工具与公司，并提供试用区与项目空间。",p2b:["智能搜索、筛选与对比","仅在有真实集成时提供在线试用","智能体、项目与收藏集合"],
+h1l:"做个小练习",h2l:"浏览类别",
+try_title:"做个小练习",try_sub:"五个技术术语，选出正确的含义。",qof:"第 {n} 题，共 {m} 题",pick:"选择含义",right:"正确。",wrong:"不对，答案是 {a}。",nextq:"下一题",see:"查看结果",score:"你答对了 {s} 题，共 {m} 题。",again:"再试一次",
+tools_title:"模型与工具",tab_latest:"最新",tab_featured:"精选",tab_popular:"最受欢迎",empty:"暂无内容",
+e0:"新的模型与工具会连同最近核实日期一起列在这里。",e1:"精选工具与项目会在审核后出现在这里。",e2:"平台有真实使用数据后才会开始排名。",badge:"待审核",
+tools_note:"工具数据需对照官方来源核实后才会展示。",
+cats_title:"按类别探索",search_label:"搜索类别与公司",nomatch:"没有匹配项，换个词试试。",
+cats:["AI 模型","开发者工具","中国应用","本地 AI","AI 智能体与多智能体","开源项目","中国科技公司"],
+catd:["语言、视觉与语音模型，每个页面展示许可、运行方式与要求。","涵盖编码、测试与发布的工具，从编辑器到 API。","面向海外用户讲解的中国应用与服务。","可在你自己的设备上运行的模型与工具。","智能体与多智能体框架，含概念与实践项目。","开源项目，许可证对照官方来源核实。","中国科技公司及其产品、模型与开发者工具。"],
+catnote:"条目在对照官方来源审核后出现。",
+comp_title:"按公司探索",coms:["阿里巴巴","腾讯","百度","字节跳动","华为","DeepSeek"],compd:"{c}：公司页面审核后添加。",
+build_title:"用中国 AI 动手构建",st:["选择项目创意","跟随分步教程","保存到你的空间"],
+sd:["从现成的创意开始，比如聊天机器人、学习助手或小型智能体。","每个项目都配有围绕某个中国 AI 工具的教程。","把你的项目、笔记和实验整理在一个地方。"],back:"上一步",next:"下一步",
+cta_title:"从一节课或一个工具开始。",to_dark:"切换到深色模式",to_light:"切换到浅色模式",menu:"菜单",top:"回到顶部",termsel:"第 {n} 个，共 {m} 个"}
+};
+var TERMS=[
+{zh:"大语言模型",py:"dà yǔ yán mó xíng",ar:"نموذج لغوي كبير",en:"Large language model",cat:0},
+{zh:"开源",py:"kāi yuán",ar:"مفتوح المصدر",en:"Open source",cat:5},
+{zh:"编程",py:"biān chéng",ar:"البرمجة",en:"Programming",cat:1},
+{zh:"算法",py:"suàn fǎ",ar:"خوارزمية",en:"Algorithm",cat:-1},
+{zh:"智能体",py:"zhì néng tǐ",ar:"وكيل ذكي",en:"AI agent",cat:4},
+{zh:"数据库",py:"shù jù kù",ar:"قاعدة بيانات",en:"Database",cat:-1},
+{zh:"网络安全",py:"wǎng luò ān quán",ar:"الأمن السيبراني",en:"Cybersecurity",cat:-1}];
+var L="en",ti=0,pTab=0,tTab=0,sTab=0,selCat=-1,selComp=-1,store=null;
+try{store=window.localStorage}catch(e){}
+function g(k){try{return store&&store.getItem(k)}catch(e){return null}}
+function s(k,v){try{store&&store.setItem(k,v)}catch(e){}}
+function t(k){return I[L][k]}
+function fmt(x,o){return x.replace(/\{(\w+)\}/g,function(_,a){return o[a]})}
+function $(i){return document.getElementById(i)}
+var root=document.documentElement,mq=window.matchMedia?matchMedia('(prefers-color-scheme: dark)'):null;
+/* theme */
+function curTheme(){var a=root.getAttribute('data-theme');if(a)return a;return mq&&mq.matches?'dark':'light'}
+function syncTheme(){
+  var m=curTheme();root.setAttribute('data-mode',m);
+  document.querySelectorAll('meta[name="theme-color"]').forEach(function(x){
+    if(root.getAttribute('data-theme'))x.setAttribute('content',m==='dark'?'#1D4A35':'#EEE5D4');
+    else x.setAttribute('content',x.getAttribute('media').indexOf('dark')>=0?'#1D4A35':'#EEE5D4')});
+  $('themeBtn').setAttribute('aria-label',t(m==='dark'?'to_light':'to_dark'));
+}
+function setText(){
+  document.querySelectorAll('[data-i18n]').forEach(function(el){var v=t(el.getAttribute('data-i18n'));if(v!=null)el.textContent=v});
+  $('skip').textContent=t('skip');$('menuBtn').setAttribute('aria-label',t('menu'));$('totop').setAttribute('aria-label',t('top'));
+  $('nav').setAttribute('aria-label',t('navlbl'));document.querySelector('.seg').setAttribute('aria-label',t('langlbl'));
+  $('q').placeholder=t('search_label');syncTheme();
+}
+function setLang(l,save){
+  L=l;root.lang=l==='zh'?'zh-Hans':l;root.dir=l==='ar'?'rtl':'ltr';root.setAttribute('data-lang',l);
+  document.querySelectorAll('.seg button').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-l')===l))});
+  if(save)s('zhi-lang',l);
+  setText();renderTerm();renderPaths();renderTools();renderCats();renderSteps();newQuiz();
+}
+/* term card */
+function renderTerm(){
+  var x=TERMS[ti];$('tzh').textContent=x.zh;$('tpy').textContent=x.py;$('tar').textContent=x.ar;$('ten').textContent=x.en;
+  $('tflip').setAttribute('aria-expanded','false');
+  $('tcount').textContent=fmt(t('termsel'),{n:ti+1,m:TERMS.length});
+  var d=$('tdots');d.innerHTML='';TERMS.forEach(function(_,i){var e=document.createElement('i');if(i===ti)e.className='on';d.appendChild(e)});
+  var a=$('tlink');if(x.cat>=0){a.hidden=false;a.textContent=t('explore_in')+' '+t('cats')[x.cat]+(L==='ar'?' ←':' →');a.dataset.cat=x.cat}else a.hidden=true;
+}
+$('tflip').addEventListener('click',function(){this.setAttribute('aria-expanded',String(this.getAttribute('aria-expanded')!=='true'))});
+$('tprev').addEventListener('click',function(){ti=(ti+TERMS.length-1)%TERMS.length;renderTerm()});
+$('tnext').addEventListener('click',function(){ti=(ti+1)%TERMS.length;renderTerm()});
+$('tlink').addEventListener('click',function(){selCat=+this.dataset.cat;$('q').value='';renderCats()});
+/* tabs helper */
+function tabKeys(list){list.addEventListener('keydown',function(e){
+  var tabs=[].slice.call(list.querySelectorAll('[role=tab]')),i=tabs.indexOf(document.activeElement);if(i<0)return;
+  var rtl=root.dir==='rtl',n=null;
+  if(e.key==='ArrowRight')n=rtl?i-1:i+1;else if(e.key==='ArrowLeft')n=rtl?i+1:i-1;else if(e.key==='Home')n=0;else if(e.key==='End')n=tabs.length-1;else return;
+  n=(n+tabs.length)%tabs.length;tabs[n].focus();tabs[n].click();e.preventDefault()})}
+function replay(p){p.style.animation='none';void p.offsetWidth;p.style.animation=''}
+/* paths */
+function renderPaths(){
+  var p=$('ppanel');replay(p);
+  var one=pTab===0,b=one?t('p1b'):t('p2b');
+  p.innerHTML='<div class="pgrid"><div><h3></h3><p></p><a class="hintlink" href="'+(one?'#try':'#categories')+'"></a></div><ul class="feat"></ul></div>';
+  p.querySelector('h3').textContent=one?t('tab1'):t('tab2');p.querySelector('p').textContent=one?t('p1d'):t('p2d');
+  p.querySelector('.hintlink').textContent=(one?t('h1l'):t('h2l'))+(L==='ar'?' ←':' →');
+  var u=p.querySelector('.feat');b.forEach(function(x,i){var li=document.createElement('li');li.innerHTML='<b aria-hidden="true">'+(i+1)+'</b><span></span>';li.querySelector('span').textContent=x;u.appendChild(li)});
+  [0,1].forEach(function(i){var e=$('ptab'+(i+1));e.setAttribute('aria-selected',String(i===pTab));e.tabIndex=i===pTab?0:-1});
+  p.setAttribute('aria-labelledby','ptab'+(pTab+1));
+}
+$('ptabs').addEventListener('click',function(e){var b=e.target.closest('[role=tab]');if(!b)return;pTab=+b.dataset.i;renderPaths()});tabKeys($('ptabs'));
+/* tools */
+function renderTools(){
+  var p=$('tpanel');replay(p);
+  p.innerHTML='<div class="empty"><span class="bd"></span><h3></h3><p></p></div>';
+  p.querySelector('.bd').textContent=t('badge');p.querySelector('h3').textContent=t('empty');p.querySelector('p').textContent=t('e'+tTab);
+  [0,1,2].forEach(function(i){var e=$('ttab'+i);e.setAttribute('aria-selected',String(i===tTab));e.tabIndex=i===tTab?0:-1});p.setAttribute('aria-labelledby','ttab'+tTab);
+}
+$('ttabs').addEventListener('click',function(e){var b=e.target.closest('[role=tab]');if(!b)return;tTab=+b.dataset.i;renderTools()});tabKeys($('ttabs'));
+/* categories + companies with live filter */
+function allLabels(i){return [I.en.cats[i],I.ar.cats[i],I.zh.cats[i]].join(' ').toLowerCase()}
+function allComp(i){return [I.en.coms[i],I.ar.coms[i],I.zh.coms[i]].join(' ').toLowerCase()}
+function renderCats(){
+  var q=$('q').value.trim().toLowerCase(),box=$('cats');box.innerHTML='';var shown=0;
+  t('cats').forEach(function(c,i){
+    if(q&&allLabels(i).indexOf(q)<0)return;shown++;
+    var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=c;b.setAttribute('aria-pressed',String(i===selCat));
+    b.addEventListener('click',function(){selCat=selCat===i?-1:i;renderCats()});box.appendChild(b)});
+  var d=$('catd');d.innerHTML='';
+  if(selCat>=0){var h=document.createElement('b');h.textContent=t('cats')[selCat];var p=document.createElement('span');p.textContent=t('catd')[selCat]+' '+t('catnote');d.appendChild(h);d.appendChild(p)}
+  else{var m=document.createElement('span');m.textContent=t('catnote');m.style.opacity='.85';d.appendChild(m)}
+  renderComps(shown);
+}
+function renderComps(catShown){
+  var q=$('q').value.trim().toLowerCase(),box=$('comps');box.innerHTML='';var shown=0;
+  t('coms').forEach(function(c,i){
+    if(q&&allComp(i).indexOf(q)<0)return;shown++;
+    var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=c;b.setAttribute('aria-pressed',String(i===selComp));
+    b.addEventListener('click',function(){selComp=selComp===i?-1:i;renderComps()});box.appendChild(b)});
+  var d=$('compd');d.innerHTML='';
+  if(selComp>=0){var span=document.createElement('span');span.textContent=fmt(t('compd'),{c:t('coms')[selComp]});d.appendChild(span)}
+  else{var m=document.createElement('span');m.textContent=t('catnote');m.style.opacity='.85';d.appendChild(m)}
+  var cs=(catShown!=null)?catShown:t('cats').filter(function(_,i){return !q||allLabels(i).indexOf(q)>=0}).length;
+  var nm=$('nomatch');nm.hidden=!(q&&cs===0&&shown===0);nm.textContent=t('nomatch');
+}
+$('q').addEventListener('input',function(){renderCats()});
+/* steps */
+function renderSteps(){
+  var box=$('steps');box.innerHTML='';
+  t('st').forEach(function(x,i){var b=document.createElement('button');b.type='button';b.className='step';b.setAttribute('role','tab');b.setAttribute('aria-selected',String(i===sTab));b.setAttribute('aria-controls','spanel');b.tabIndex=i===sTab?0:-1;b.id='st'+i;
+    b.innerHTML='<span aria-hidden="true">'+(i+1)+'</span><em style="font-style:normal"></em>';b.querySelector('em').textContent=x;
+    b.addEventListener('click',function(){sTab=i;renderSteps();$('st'+i).focus()});box.appendChild(b)});
+  var p=$('spanel');replay(p);
+  p.innerHTML='<h3 style="font-size:clamp(22px,2.6vw,30px);margin-bottom:10px"></h3><p></p>';p.firstChild.textContent=t('st')[sTab];p.lastChild.textContent=t('sd')[sTab];
+  p.setAttribute('aria-labelledby','st'+sTab);
+  $('sback').disabled=sTab===0;$('snext').disabled=sTab===2;
+}
+tabKeys($('steps'));
+$('sback').addEventListener('click',function(){if(sTab>0){sTab--;renderSteps()}});
+$('snext').addEventListener('click',function(){if(sTab<2){sTab++;renderSteps()}});
+/* quiz */
+var Q=[],qi=0,sc=0;
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),x=a[i];a[i]=a[j];a[j]=x}return a}
+function meaning(x){return L==='ar'?x.ar:x.en}
+function newQuiz(){Q=shuffle(TERMS.slice()).slice(0,5);qi=0;sc=0;renderQ()}
+function renderQ(){
+  var box=$('quiz');box.innerHTML='';
+  if(qi>=Q.length){
+    box.innerHTML='<div class="qres"><div class="big"></div><p></p><button class="btn pri" type="button"></button></div>';
+    box.querySelector('.big').textContent=sc+' / '+Q.length;box.querySelector('p').textContent=fmt(t('score'),{s:sc,m:Q.length});
+    var r=box.querySelector('button');r.textContent=t('again');r.addEventListener('click',newQuiz);return}
+  var x=Q[qi],opts=shuffle([x].concat(shuffle(TERMS.filter(function(y){return y!==x})).slice(0,2)));
+  box.innerHTML='<div class="qmeta"><span></span><span></span></div><div class="bar"><i></i></div><div class="qterm" lang="zh-Hans"></div><div class="qpy"></div><div class="opts" role="group"></div><div class="fb" role="status" aria-live="polite"></div><div style="margin-top:12px"><button class="btn pri" type="button" hidden></button></div>';
+  var m=box.querySelectorAll('.qmeta span');m[0].textContent=fmt(t('qof'),{n:qi+1,m:Q.length});m[1].textContent=t('pick');
+  box.querySelector('.bar i').style.width=(qi/Q.length*100)+'%';
+  box.querySelector('.qterm').textContent=x.zh;box.querySelector('.qpy').textContent=x.py;
+  var og=box.querySelector('.opts'),fb=box.querySelector('.fb'),nb=box.querySelector('.btn');
+  og.setAttribute('aria-label',t('pick'));
+  opts.forEach(function(o){var b=document.createElement('button');b.type='button';b.className='opt';b.textContent=meaning(o);if(L==='ar')b.dir='rtl';
+    b.addEventListener('click',function(){
+      var ok=o===x;if(ok)sc++;
+      og.querySelectorAll('.opt').forEach(function(e){e.disabled=true;if(e.textContent===meaning(x))e.classList.add('ok')});
+      if(!ok)b.classList.add('bad');
+      fb.textContent=ok?t('right'):fmt(t('wrong'),{a:meaning(x)});
+      box.querySelector('.bar i').style.width=((qi+1)/Q.length*100)+'%';
+      nb.hidden=false;nb.textContent=qi===Q.length-1?t('see'):t('nextq');nb.focus()});
+    og.appendChild(b)});
+  nb.addEventListener('click',function(){qi++;renderQ()});
+}
+$('themeBtn').addEventListener('click',function(){var n=curTheme()==='dark'?'light':'dark';root.setAttribute('data-theme',n);s('zhi-theme',n);syncTheme()});
+var st=g('zhi-theme');if(st==='light'||st==='dark')root.setAttribute('data-theme',st);
+if(mq){var onSys=function(){if(!root.getAttribute('data-theme'))syncTheme()};mq.addEventListener?mq.addEventListener('change',onSys):mq.addListener(onSys)}
+/* language buttons */
+document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-l'),true)})});
+/* menu: closes on link, Escape, outside tap, and when the layout goes wide */
+var mb=$('menuBtn'),nv=$('nav');
+function closeMenu(focusBtn){if(!nv.classList.contains('open'))return;nv.classList.remove('open');mb.setAttribute('aria-expanded','false');if(focusBtn)mb.focus()}
+mb.addEventListener('click',function(){var o=nv.classList.toggle('open');mb.setAttribute('aria-expanded',String(o));if(o){var a=nv.querySelector('a');a&&a.focus()}});
+nv.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu(true)});
+document.addEventListener('click',function(e){if(!e.target.closest('.hdr'))closeMenu(false)});
+if(window.matchMedia){var wide=matchMedia('(min-width:1061px)'),onWide=function(){if(wide.matches)closeMenu(false)};wide.addEventListener?wide.addEventListener('change',onWide):wide.addListener(onWide)}
+/* scroll: spy, back-to-top, reveal */
+var links=[].slice.call(document.querySelectorAll('nav.main a'));
+var secs=['paths','try','tools','categories','companies','build'],ticking=false;
+function spy(){ticking=false;var y=window.scrollY+140,cur=null;secs.forEach(function(id){var el=$(id);if(el&&el.offsetTop<=y)cur=id});
+  links.forEach(function(a){if(a.getAttribute('href')==='#'+cur)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+  $('totop').classList.toggle('show',window.scrollY>700)}
+window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(spy)}},{passive:true});
+$('totop').addEventListener('click',function(){window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});$('skip').focus({preventScroll:true})});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})}else document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+/* init */
+var sl=g('zhi-lang');if(!sl||!I[sl]){var n=(navigator.language||'en').slice(0,2);sl=n==='ar'||n==='zh'?n:'en'}
+setLang(sl,false);spy();
+})();
+</script>
 </body>
-
 </html>
