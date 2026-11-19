@@ -221,8 +221,17 @@ html[data-lang="zh"] { --ff: var(--font-zh); --hf: var(--font-zh); }
   .tool-links a { font-size: 15px; font-weight: 700; min-height: 32px; display: inline-flex; align-items: center; text-decoration-color: var(--accent); text-underline-offset: 3px; }
   .tool-foot small { font-size: 14px; opacity: .85; }
 
+  /* The whole card is clickable: the name link stretches over the card. */
+  .tool { position: relative; transition: transform .2s, border-color .2s, box-shadow .2s; }
   .tool-name { text-decoration: none; }
-  .tool-name:hover { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
+  .tool-name::after { content: ""; position: absolute; inset: 0; border-radius: 16px; }
+  .tool-name:focus-visible { outline: none; }
+  .tool:has(.tool-name:focus-visible) { outline: 3px solid var(--fg); outline-offset: 3px; }
+  @media (hover: hover) {
+    .tool:hover { border-color: var(--fg); transform: translate(-2px, -2px); box-shadow: var(--shadow-brand); }
+    .tool:hover .tool-name { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
+  }
+  .tool:active { transform: none; box-shadow: none; }
 
   /* tool page */
   .tp-back { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; font-size: 16px; text-decoration-color: var(--accent); text-underline-offset: 4px; }
