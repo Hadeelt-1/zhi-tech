@@ -16,15 +16,40 @@
     "linkedin": "Hadeel Almutairi on LinkedIn"
   },
   "nav": {
-    "groups": { "learn": "Learn", "explore": "Explore", "build": "Build" },
+    "groups": {
+      "learn": "Learn",
+      "explore": "Explore",
+      "build": "Build"
+    },
     "soon": "Coming soon",
     "items": {
-      "quiz": "Quick exercise", "lessons": "Lessons", "vocab": "Vocabulary library", "practice": "Practice", "tutor": "AI tutor", "dict": "My dictionary",
-      "cats": "Categories", "comp": "Companies", "tools": "Models & tools", "search": "Smart search", "compare": "Compare", "agents": "AI agents", "assist": "Discovery assistant",
-      "steps": "How building works", "projects": "Projects", "play": "Playground", "dash": "My dashboard"
+      "quiz": "Quick exercise",
+      "lessons": "Lessons",
+      "vocab": "Vocabulary library",
+      "practice": "Practice",
+      "tutor": "AI tutor",
+      "dict": "My dictionary",
+      "cats": "Categories",
+      "comp": "Companies",
+      "tools": "Models & tools",
+      "search": "Smart search",
+      "compare": "Compare",
+      "agents": "AI agents",
+      "assist": "Discovery assistant",
+      "steps": "How building works",
+      "projects": "Projects",
+      "play": "Playground",
+      "dash": "My dashboard"
     }
   },
-  "sections": { "paths": "Two paths", "try": "Try it", "tools": "Tools", "cats": "Categories", "comp": "Companies", "build": "Build" },
+  "sections": {
+    "paths": "Two paths",
+    "try": "Try it",
+    "tools": "Tools",
+    "cats": "Categories",
+    "comp": "Companies",
+    "build": "Build"
+  },
   "hero": {
     "h1": "Chinese tech, made easy to learn and build with.",
     "sub": "Learn the Chinese used in tech and AI, then explore, try and build with Chinese and global tools.",
@@ -42,9 +67,17 @@
     "tab1": "Chinese for Tech & AI",
     "tab2": "Explore & Build with Chinese AI",
     "p1d": "Sequential lessons and a searchable vocabulary library, linked to HSK levels.",
-    "p1b": ["Technical vocabulary with pinyin and Arabic", "Exercises and an AI conversation tutor", "Progress, points and badges"],
+    "p1b": [
+      "Technical vocabulary with pinyin and Arabic",
+      "Exercises and an AI conversation tutor",
+      "Progress, points and badges"
+    ],
     "p2d": "A hub for Chinese models, tools and companies, with a playground and project workspace.",
-    "p2b": ["Smart search, filters and comparison", "Playground only where a real integration exists", "Agents, projects and saved collections"],
+    "p2b": [
+      "Smart search, filters and comparison",
+      "Playground only where a real integration exists",
+      "Agents, projects and saved collections"
+    ],
     "link1": "Try a quick exercise",
     "link2": "Browse the categories"
   },
@@ -62,7 +95,11 @@
   },
   "tools": {
     "title": "Models & tools",
-    "tabs": ["Latest", "Featured", "Most popular"],
+    "tabs": [
+      "Latest",
+      "Featured",
+      "Most popular"
+    ],
     "empty": "Nothing to show yet",
     "emptyText": [
       "New models and tools will be listed here with the date they were last verified.",
@@ -70,13 +107,37 @@
       "Rankings will start once the platform has real usage data."
     ],
     "badge": "Needs review",
-    "note": "No tool data is shown until it is checked against official sources."
+    "note": "Entries are drafts taken from official sources and stay marked “Needs review” until checked by the editor.",
+    "license": "License",
+    "runtime": "Runs",
+    "params": "Parameters",
+    "context": "Context",
+    "checked": "Sources read on {d}",
+    "sourcesLabel": "Sources",
+    "runtimes": {
+      "local": "Local",
+      "api": "API",
+      "cloud": "Cloud"
+    },
+    "licenseKinds": {
+      "open_source": "Open source",
+      "open_weight": "Open weight",
+      "proprietary": "Proprietary"
+    }
   },
   "cats": {
     "title": "Explore by category",
     "searchLabel": "Search categories and companies",
     "noMatch": "No match. Try another word.",
-    "items": ["AI Models", "Developer Tools", "Chinese Apps", "Local AI", "AI Agents & Multi-Agent", "Open Source Projects", "Chinese Tech Companies"],
+    "items": [
+      "AI Models",
+      "Developer Tools",
+      "Chinese Apps",
+      "Local AI",
+      "AI Agents & Multi-Agent",
+      "Open Source Projects",
+      "Chinese Tech Companies"
+    ],
     "desc": [
       "Language, vision and speech models, with license, runtime and requirements shown on each page.",
       "Tools for coding, testing and shipping, from editors to APIs.",
@@ -90,12 +151,23 @@
   },
   "comp": {
     "title": "Explore by company",
-    "items": ["Alibaba", "Tencent", "Baidu", "ByteDance", "Huawei", "DeepSeek"],
+    "items": [
+      "Alibaba",
+      "Tencent",
+      "Baidu",
+      "ByteDance",
+      "Huawei",
+      "DeepSeek"
+    ],
     "detail": "{c}: the company profile is added after review."
   },
   "build": {
     "title": "Build with Chinese AI",
-    "steps": ["Pick a project idea", "Follow a step-by-step tutorial", "Save it to your workspace"],
+    "steps": [
+      "Pick a project idea",
+      "Follow a step-by-step tutorial",
+      "Save it to your workspace"
+    ],
     "desc": [
       "Start from a ready-made idea, such as a chatbot, a study helper or a small agent.",
       "Each project comes with a tutorial built around a specific Chinese AI tool.",
@@ -104,5 +176,7 @@
     "back": "Back",
     "next": "Next"
   },
-  "cta": { "title": "Start with a lesson or a tool." }
+  "cta": {
+    "title": "Start with a lesson or a tool."
+  }
 }

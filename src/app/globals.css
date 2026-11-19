@@ -202,6 +202,23 @@ html[data-lang="zh"] { --ff: var(--font-zh); --hf: var(--font-zh); }
   .qres { text-align: center; display: grid; gap: 16px; justify-items: center; }
   .qres .big { font-family: var(--hf); font-size: clamp(40px, 6vw, 64px); font-weight: 700; }
 
+  /* tool cards */
+  .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 16px; }
+  .tool { display: flex; flex-direction: column; gap: 14px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--bg); }
+  .tool-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .tool h3 { font-family: var(--font-en-head); font-size: 22px; }
+  .tool-co { font-size: 15px; opacity: .85; }
+  .tool > p { font-size: 16px; }
+  .tool-facts { display: grid; gap: 6px; margin: 0; font-size: 15px; }
+  .tool-facts div { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tool-facts dt { font-weight: 700; }
+  .tool-facts dt::after { content: ":"; }
+  .tool-facts dd { margin: 0; }
+  .tool-foot { margin-top: auto; display: grid; gap: 8px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .tool-links { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .tool-links a { font-size: 15px; font-weight: 700; min-height: 32px; display: inline-flex; align-items: center; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  .tool-foot small { font-size: 14px; opacity: .85; }
+
   /* empty states, notes */
   .empty { display: grid; gap: 12px; justify-items: start; }
   .pill { display: inline-block; border: 1.5px solid var(--accent); border-radius: 99px; padding: 2px 12px; font-size: 14px; font-weight: 700; }

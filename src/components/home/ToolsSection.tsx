@@ -1,12 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/get-dictionary";
+import { TOOLS } from "@/content/tools";
+import ToolCard from "./ToolCard";
 import Reveal from "@/components/Reveal";
 import { handleTabKeys } from "@/lib/text";
 
-/** Latest / Featured / Most popular. Empty on purpose until verified tool data exists. */
-export default function ToolsSection({ dict }: { dict: Dictionary }) {
+/**
+ * Latest shows the catalogue (drafts are labeled "Needs review").
+ * Featured and Most popular stay empty until there are editor picks and real usage data.
+ */
+export default function ToolsSection({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const [tab, setTab] = useState(0);
   const t = dict.tools;
 
@@ -32,11 +38,17 @@ export default function ToolsSection({ dict }: { dict: Dictionary }) {
           ))}
         </div>
         <div className="panel" id="tpanel" role="tabpanel" aria-labelledby={`ttab${tab}`} key={tab}>
-          <div className="empty">
-            <span className="pill">{t.badge}</span>
-            <h3>{t.empty}</h3>
-            <p>{t.emptyText[tab]}</p>
-          </div>
+          {tab === 0 && TOOLS.length > 0 ? (
+            <div className="tool-grid">
+              {TOOLS.map((tool) => <ToolCard key={tool.slug} tool={tool} lang={lang} dict={dict} />)}
+            </div>
+          ) : (
+            <div className="empty">
+              <span className="pill">{t.badge}</span>
+              <h3>{t.empty}</h3>
+              <p>{t.emptyText[tab]}</p>
+            </div>
+          )}
         </div>
         <p className="note">{t.note}</p>
       </Reveal>

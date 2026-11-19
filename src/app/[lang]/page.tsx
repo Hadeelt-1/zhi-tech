@@ -19,7 +19,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       <Hero lang={lang} dict={dict} />
       <PathsSection lang={lang} dict={dict} />
       <QuizSection lang={lang} dict={dict} />
-      <ToolsSection dict={dict} />
+      <ToolsSection lang={lang} dict={dict} />
       <ExploreSection dict={dict} />
       <BuildSection dict={dict} />
       <CtaBand dict={dict} />
