@@ -17,7 +17,7 @@ export default function ToolCard({ tool, lang, dict }: { tool: Tool; lang: Local
       </header>
       <p>{tool.summary[lang]}</p>
       <dl className="tool-facts">
-        <div><dt>{t.license}</dt><dd>{t.licenseKinds[tool.license.kind]} · <span dir="ltr">{tool.license.name}</span></dd></div>
+        <div><dt>{t.license}</dt><dd>{t.licenseKinds[tool.license.kind]}{tool.license.kind !== "not_stated" && <> · <span dir="ltr">{tool.license.name}</span></>}</dd></div>
         <div><dt>{t.runtime}</dt><dd>{tool.runtime.map((r) => t.runtimes[r]).join(" · ")}</dd></div>
         {tool.specs.parameters && <div><dt>{t.params}</dt><dd dir="ltr">{tool.specs.parameters}</dd></div>}
         {tool.specs.contextTokens && <div><dt>{t.context}</dt><dd dir="ltr">{tool.specs.contextTokens}</dd></div>}

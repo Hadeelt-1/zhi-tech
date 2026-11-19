@@ -11,7 +11,8 @@
 export type ToolStatus = "draft" | "needs_review" | "verified";
 export type ToolType = "model" | "tool" | "app" | "project" | "framework";
 export type Runtime = "local" | "api" | "cloud";
-export type LicenseKind = "open_source" | "open_weight" | "proprietary";
+/** "not_stated": the official source does not say; never guess. */
+export type LicenseKind = "open_source" | "open_weight" | "proprietary" | "not_stated";
 
 export type Tool = {
   slug: string;
@@ -135,6 +136,100 @@ export const TOOLS: Tool[] = [
     sources: [
       "https://www.alibabacloud.com/blog/alibaba-unveils-qwen3-8-27b-and-releases-weights-of-qwen3-8-flagship-model_603463",
     ],
+    lastChecked: "2026-11-19",
+    status: "needs_review",
+  },
+{
+    slug: "minimax-m3",
+    name: "MiniMax-M3",
+    type: "model",
+    company: "minimax",
+    companyName: "MiniMax",
+    license: { kind: "open_weight", name: "MiniMax Community License" },
+    runtime: ["local", "api"],
+    specs: { parameters: "428B total, 23B active", contextTokens: "1M", modalities: ["text", "image", "video"] },
+    summary: {
+      en: "Multimodal model for long agent work, especially coding. Free for non-commercial use; commercial products must credit MiniMax, and companies above $20M yearly revenue need written permission.",
+      ar: "نموذج متعدد الوسائط مخصّص للمهام الطويلة التي ينفذها الذكاء الاصطناعي، ولا سيما البرمجة. استخدامه مجاني للأغراض غير التجارية، أما المنتجات التجارية فيلزمها ذكر MiniMax، وتحتاج الشركات التي تتجاوز إيراداتها السنوية 20 مليون دولار إلى إذن مكتوب.",
+      zh: "面向长程智能体任务（尤其是编程）的多模态模型。非商业用途免费；商业产品须注明 MiniMax，年收入超过 2000 万美元的企业需事先获得书面授权。",
+    },
+    links: [
+      { label: "Hugging Face", url: "https://huggingface.co/MiniMaxAI/MiniMax-M3" },
+      { label: "API platform", url: "https://platform.minimax.io/" },
+      { label: "GitHub", url: "https://github.com/MiniMax-AI/MiniMax-M3" },
+    ],
+    sources: [
+      "https://huggingface.co/MiniMaxAI/MiniMax-M3/blob/main/README.md",
+      "https://huggingface.co/MiniMaxAI/MiniMax-M3/raw/main/LICENSE",
+    ],
+    lastChecked: "2026-11-19",
+    status: "needs_review",
+  },
+  {
+    slug: "hy3",
+    name: "Hy3",
+    type: "model",
+    company: "tencent",
+    companyName: "Tencent (Hunyuan)",
+    license: { kind: "open_weight", name: "Apache 2.0" },
+    runtime: ["local"],
+    specs: { parameters: "295B total, 21B active", contextTokens: "256K", modalities: ["text"] },
+    summary: {
+      en: "Text model from Tencent Hunyuan for agent tasks, coding, office work and long documents. Released under Apache 2.0 with no extra restrictions on commercial use.",
+      ar: "نموذج نصي من فريق Hunyuan في Tencent، مخصّص للمهام التي ينفذها الذكاء الاصطناعي، والبرمجة، والأعمال المكتبية، والمستندات الطويلة. صدر بترخيص Apache 2.0 دون قيود إضافية على الاستخدام التجاري.",
+      zh: "腾讯混元推出的文本模型，面向智能体任务、编程、办公与长文档。采用 Apache 2.0 许可，商业使用无额外限制。",
+    },
+    links: [
+      { label: "Hugging Face", url: "https://huggingface.co/tencent/Hy3" },
+      { label: "GitHub", url: "https://github.com/Tencent-Hunyuan/Hy3" },
+    ],
+    sources: [
+      "https://huggingface.co/tencent/Hy3",
+      "https://huggingface.co/tencent/Hy3/raw/main/LICENSE",
+    ],
+    lastChecked: "2026-11-19",
+    status: "needs_review",
+  },
+  {
+    slug: "seed-2-1",
+    name: "Seed2.1 (Doubao Seed 2.1)",
+    type: "model",
+    company: "bytedance",
+    companyName: "ByteDance (Seed)",
+    license: { kind: "not_stated", name: "—" },
+    runtime: ["cloud"],
+    specs: {},
+    summary: {
+      en: "ByteDance's model family behind the Doubao assistant, for office tasks, software development, documents and charts, and operating apps on phones and computers. Available in the Doubao app and on Volcano Engine.",
+      ar: "عائلة النماذج التي يعمل بها مساعد Doubao من ByteDance، وتُستخدم في المهام المكتبية، وتطوير البرمجيات، وفهم المستندات والرسوم البيانية، والتحكم بالتطبيقات على الهاتف والحاسوب. متاحة عبر تطبيق Doubao ومنصة Volcano Engine.",
+      zh: "字节跳动豆包助手背后的模型家族，适用于办公任务、软件开发、文档与图表理解，以及在手机和电脑上操作应用。可通过豆包应用和火山引擎使用。",
+    },
+    links: [
+      { label: "Seed blog", url: "https://seed.bytedance.com/blog/seed2-1-officially-released-advancing-ai-productivity" },
+    ],
+    sources: ["https://seed.bytedance.com/blog/seed2-1-officially-released-advancing-ai-productivity"],
+    lastChecked: "2026-11-19",
+    status: "needs_review",
+  },
+  {
+    slug: "ernie-5-5-flash-preview",
+    name: "ERNIE 5.5 Flash (Preview)",
+    type: "model",
+    company: "baidu",
+    companyName: "Baidu",
+    license: { kind: "not_stated", name: "—" },
+    runtime: ["api"],
+    specs: {},
+    summary: {
+      en: "Baidu's newest ERNIE release, still in preview. Baidu shows it writing code and using tools to build games, 3D models and videos. Available through Baidu Qianfan and OpenRouter.",
+      ar: "أحدث إصدارات ERNIE من Baidu، وما زال في مرحلة تجريبية. تعرض Baidu قدرته على كتابة الشيفرة واستخدام الأدوات لبناء الألعاب والنماذج ثلاثية الأبعاد والفيديو. متاح عبر منصة Baidu Qianfan وOpenRouter.",
+      zh: "百度最新的文心（ERNIE）版本，仍处于预览阶段。百度展示其可编写代码并调用工具来制作游戏、3D 模型和视频。可通过百度千帆和 OpenRouter 使用。",
+    },
+    links: [
+      { label: "ernie.baidu.com", url: "https://ernie.baidu.com/" },
+      { label: "Baidu Qianfan", url: "https://cloud.baidu.com/product/qianfan.html" },
+    ],
+    sources: ["https://ernie.baidu.com/"],
     lastChecked: "2026-11-19",
     status: "needs_review",
   },

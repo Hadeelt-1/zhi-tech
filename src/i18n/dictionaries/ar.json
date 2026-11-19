@@ -122,7 +122,8 @@
     "licenseKinds": {
       "open_source": "مفتوح المصدر",
       "open_weight": "متاح للتنزيل",
-      "proprietary": "مغلق"
+      "proprietary": "مغلق",
+      "not_stated": "غير مذكور في المصدر"
     }
   },
   "cats": {

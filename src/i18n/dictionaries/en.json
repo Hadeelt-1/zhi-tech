@@ -122,7 +122,8 @@
     "licenseKinds": {
       "open_source": "Open source",
       "open_weight": "Open weight",
-      "proprietary": "Proprietary"
+      "proprietary": "Proprietary",
+      "not_stated": "Not stated by the source"
     }
   },
   "cats": {

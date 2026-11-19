@@ -122,7 +122,8 @@
     "licenseKinds": {
       "open_source": "开源",
       "open_weight": "开放权重",
-      "proprietary": "专有"
+      "proprietary": "专有",
+      "not_stated": "来源未说明"
     }
   },
   "cats": {
