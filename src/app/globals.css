@@ -268,6 +268,19 @@ html[data-lang="zh"] { --ff: var(--font-zh); --hf: var(--font-zh); }
   .cmp-list { margin: 0; padding-inline-start: 18px; display: grid; gap: 6px; }
   .cmp-list li::marker { color: var(--accent); }
 
+  /* accounts */
+  a.ibtn { text-decoration: none; }
+  .ibtn-on { background: var(--pbg); color: var(--pfg); border-color: var(--pbg); }
+  .tp-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+  .auth-wrap { max-width: 560px; }
+  .auth-box { border: 1px solid var(--line); background: var(--surface); border-radius: 20px; padding: clamp(20px, 3vw, 32px); }
+  .auth-form { display: grid; gap: 16px; }
+  .field { display: grid; gap: 6px; font-weight: 700; font-size: 16px; }
+  .field input { min-height: 52px; border-radius: 12px; border: 2px solid var(--fg); background: var(--bg); color: var(--fg); padding: 0 14px; font: inherit; font-weight: 500; font-size: 17px; }
+  .field small { font-weight: 500; font-size: 14px; }
+  .auth-form .fb:empty { display: none; }
+  .acc-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 16px; }
+
   /* empty states, notes */
   .empty { display: grid; gap: 12px; justify-items: start; }
   .pill { display: inline-block; border: 1.5px solid var(--accent); border-radius: 99px; padding: 2px 12px; font-size: 14px; font-weight: 700; }

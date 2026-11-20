@@ -6,6 +6,7 @@ import { getTool, TOOLS, type LocalizedList, type Tool } from "@/content/tools";
 import { getCompany } from "@/content/companies";
 import ToolFacts from "@/components/explore/ToolFacts";
 import ToolCard from "@/components/home/ToolCard";
+import FavoriteButton from "@/components/auth/FavoriteButton";
 import { fmt } from "@/lib/text";
 
 type Params = Promise<{ lang: string; slug: string }>;
@@ -58,7 +59,10 @@ export default async function ToolPage({ params }: { params: Params }) {
           <p className="tool-co" lang="en" dir="ltr">{tool.companyName}</p>
           <h1 lang="en" dir="ltr">{tool.name}</h1>
           <p className="sub">{tool.summary[lang]}</p>
-          <a className="btn" href={`/${lang}/explore/compare?tools=${tool.slug}`} style={{ marginTop: 20 }}>{dict.compare.compareThis}</a>
+          <div className="tp-actions">
+            <FavoriteButton slug={tool.slug} lang={lang} dict={dict} />
+            <a className="btn" href={`/${lang}/explore/compare?tools=${tool.slug}`}>{dict.compare.compareThis}</a>
+          </div>
         </header>
 
         {tool.status !== "verified" && (
