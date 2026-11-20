@@ -281,6 +281,19 @@ html[data-lang="zh"] { --ff: var(--font-zh); --hf: var(--font-zh); }
   .auth-form .fb:empty { display: none; }
   .acc-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 16px; }
 
+  /* smart search */
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .search-wide { max-width: 760px; }
+  .ex-examples { display: grid; gap: 10px; margin: -4px 0 24px; }
+  .ex-examples .chip { text-align: start; min-height: 44px; padding-block: 8px; line-height: 1.4; }
+  .ex-understood { margin: -4px 0 24px; display: grid; gap: 8px; min-height: 0; }
+  .why { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .why li { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 99px; background: var(--surface2); font-size: 14px; font-weight: 700; }
+  .why li::before { content: "✓"; color: var(--fg); }
+  .home-search { margin-bottom: 28px; }
+  .home-search-row { display: flex; gap: 10px; flex-wrap: wrap; max-width: 760px; }
+  .home-search-row .search { flex: 1 1 280px; margin-bottom: 0; }
+
   /* empty states, notes */
   .empty { display: grid; gap: 12px; justify-items: start; }
   .pill { display: inline-block; border: 1.5px solid var(--accent); border-radius: 99px; padding: 2px 12px; font-size: 14px; font-weight: 700; }

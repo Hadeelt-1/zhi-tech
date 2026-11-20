@@ -23,6 +23,13 @@ export default function ToolsSection({ lang, dict }: { lang: Locale; dict: Dicti
     <section className="sec" id="tools">
       <Reveal className="wrap">
         <h2 className="sec-title">{t.title}</h2>
+        <form className="home-search" action={`/${lang}/explore`} role="search">
+          <label htmlFor="home-q" className="note" style={{ display: "block", margin: "-8px 0 8px", fontWeight: 700 }}>{dict.search.homeTitle}</label>
+          <div className="home-search-row">
+            <input id="home-q" name="q" className="search search-wide" type="search" placeholder={dict.search.placeholder} autoComplete="off" />
+            <button type="submit" className="btn pri">{dict.search.homeButton}</button>
+          </div>
+        </form>
         <div className="tabs" role="tablist" onKeyDown={(e) => handleTabKeys(e, t.tabs.length, tab, setTab)}>
           {t.tabs.map((label, i) => (
             <button

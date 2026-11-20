@@ -311,5 +311,38 @@
     "errSame": "Please choose a password different from your current one.",
     "passwordSaved": "Your password has been changed.",
     "backToLogin": "Back to log in"
+  },
+  "search": {
+    "label": "Search by question or name",
+    "placeholder": "e.g. a model I can run on my computer for coding",
+    "understood": "Understood from your question:",
+    "onlyWords": "Searching names and descriptions",
+    "examplesTitle": "Try a question:",
+    "examples": [
+      "A Chinese model I can run locally that helps me with coding",
+      "A model that understands images and video",
+      "An open model for long documents"
+    ],
+    "uses": {
+      "coding": "Coding",
+      "agents": "Agent tasks",
+      "longdocs": "Long documents",
+      "office": "Office work",
+      "research": "Research",
+      "writing": "Writing and chat",
+      "reasoning": "Reasoning and math",
+      "creative": "Design and creative work"
+    },
+    "modalities": {
+      "image": "Understands images",
+      "video": "Understands video"
+    },
+    "open": "Available to download",
+    "company": "From the company you asked about",
+    "text": "Matches your words",
+    "why": "Why it matches",
+    "note": "Search understands common words in Arabic, English and Chinese. If you do not find what you need, try simpler words.",
+    "homeTitle": "Search with a question",
+    "homeButton": "Search"
   }
 }

@@ -16,6 +16,9 @@ export type Runtime = "local" | "api" | "cloud";
 /** "not_stated": the official source does not say; never guess. */
 export type LicenseKind = "open_source" | "open_weight" | "proprietary" | "not_stated";
 
+/** What a tool is good for, used by smart search. Set only from the sourced use cases. */
+export type UseTag = "coding" | "agents" | "longdocs" | "office" | "research" | "writing" | "reasoning" | "creative";
+
 export type LocalizedList = { ar: string[]; en: string[]; zh: string[] };
 
 export type Tool = {
@@ -39,6 +42,7 @@ export type Tool = {
   summary: { ar: string; en: string; zh: string };
   /** Lists taken from the sources; empty when the source says nothing. */
   useCases: LocalizedList;
+  useTags: UseTag[];
   requirements: LocalizedList;
   limitations: LocalizedList;
   links: { label: string; url: string }[];
@@ -71,6 +75,7 @@ export const TOOLS: Tool[] = [
       ar: ["المحادثة والكتابة اليومية، مع وضع سريع للمهام المعتادة", "حل المشكلات المعقدة والتخطيط باستخدام أوضاع التفكير الأعمق", "البرمجة والمهام متعددة الخطوات التي ينفذها الذكاء الاصطناعي", "التعامل مع المستندات الطويلة جدًا"],
       zh: ["日常对话与写作，常规任务可用快速模式", "借助更深的推理模式解决复杂问题和进行规划", "编程与多步骤智能体工作流", "处理超长文档"],
     },
+    useTags: ["writing", "reasoning", "coding", "agents", "longdocs"],
     requirements: {
       en: ["Self-hosting uses serving engines such as vLLM or SGLang", "The deepest reasoning mode needs a context of at least 384K tokens"],
       ar: ["يتطلب التشغيل الذاتي برامج تشغيل النماذج مثل vLLM أو SGLang", "يحتاج أعمق أوضاع التفكير إلى سعة نص لا تقل عن 384 ألف رمز"],
@@ -113,6 +118,7 @@ export const TOOLS: Tool[] = [
       ar: ["جلسات برمجية طويلة على مشاريع كبيرة، بما في ذلك أدوات Terminal", "البحث المعمّق مع رسوم ولوحات بيانات تفاعلية", "تصميم الرسوم المتحركة وتحرير الفيديو"],
       zh: ["在大型代码库上进行长时间工程工作，包括终端工具", "带交互式图表和仪表板的深度研究", "动态设计与视频剪辑"],
     },
+    useTags: ["coding", "research", "creative"],
     requirements: {
       en: [],
       ar: [],
@@ -155,6 +161,7 @@ export const TOOLS: Tool[] = [
       ar: ["المهام البرمجية الطويلة متعددة الخطوات", "العمل داخل Terminal"],
       zh: ["长程、多步骤的编程任务", "终端内的工作"],
     },
+    useTags: ["coding", "agents"],
     requirements: {
       en: ["Self-hosting supports SGLang, vLLM, Transformers, xLLM and KTransformers"],
       ar: ["يدعم التشغيل الذاتي برامج SGLang وvLLM وTransformers وxLLM وKTransformers"],
@@ -194,6 +201,7 @@ export const TOOLS: Tool[] = [
       ar: ["البرمجة والأعمال المهنية", "البحث", "المهام الطويلة متعددة الخطوات التي ينفذها الذكاء الاصطناعي", "فهم الصور والفيديو"],
       zh: ["编程与专业工作", "研究", "长程、多步骤的智能体任务", "理解图像与视频"],
     },
+    useTags: ["coding", "research", "agents"],
     requirements: {
       en: ["Runs on consumer hardware, and on a laptop after reducing its size (according to Alibaba)"],
       ar: ["يعمل على الأجهزة الشخصية المعتادة، وعلى الحاسوب المحمول بعد تقليص حجمه (بحسب Alibaba)"],
@@ -233,6 +241,7 @@ export const TOOLS: Tool[] = [
       ar: ["المهام الطويلة التي ينفذها الذكاء الاصطناعي، ولا سيما البرمجة", "المهام المكتبية والتعاونية", "ثلاثة أوضاع للتفكير: مفعّل، أو تلقائي بحسب المهمة، أو متوقف"],
       zh: ["长程智能体工作，尤其是编程", "办公与协作任务", "三种推理模式：开启、自适应或关闭"],
     },
+    useTags: ["coding", "agents", "office"],
     requirements: {
       en: [],
       ar: [],
@@ -275,6 +284,7 @@ export const TOOLS: Tool[] = [
       ar: ["المهام التي ينفذها الذكاء الاصطناعي والبرمجة", "الأعمال المكتبية والنمذجة المالية", "تصميم الواجهات وتطوير الألعاب", "الاستدلال المنطقي والمستندات الطويلة"],
       zh: ["智能体任务与编程", "办公与财务建模", "前端设计与游戏开发", "推理与长文档"],
     },
+    useTags: ["agents", "coding", "office", "creative", "reasoning", "longdocs"],
     requirements: {
       en: ["Can be further trained (fine-tuned) on your own data"],
       ar: ["يمكن تدريبه تدريبًا إضافيًا على بياناتك الخاصة"],
@@ -316,6 +326,7 @@ export const TOOLS: Tool[] = [
       ar: ["المهام المكتبية متعددة الخطوات: التخطيط والمستندات واستخدام الأدوات", "تطوير البرمجيات كاملًا، من المتطلبات إلى إصلاح الأخطاء", "فهم المستندات والرسوم البيانية والفيديو", "التحكم بالتطبيقات على الهاتف والحاسوب"],
       zh: ["多步骤办公：规划、文档处理与工具使用", "完整的软件开发，从需求到修复缺陷", "理解文档、图表与视频", "在手机和电脑上操作应用"],
     },
+    useTags: ["office", "coding", "longdocs", "agents"],
     requirements: {
       en: [],
       ar: [],
@@ -353,6 +364,7 @@ export const TOOLS: Tool[] = [
       ar: ["كتابة الشيفرة واستخدام الأدوات لبناء الألعاب والنماذج ثلاثية الأبعاد والفيديو"],
       zh: ["编写代码并调用工具制作游戏、3D 模型和视频"],
     },
+    useTags: ["coding", "creative"],
     requirements: {
       en: [],
       ar: [],

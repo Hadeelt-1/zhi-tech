@@ -311,5 +311,38 @@
     "errSame": "请设置与当前密码不同的新密码。",
     "passwordSaved": "密码已更改。",
     "backToLogin": "返回登录"
+  },
+  "search": {
+    "label": "用问题或名称搜索",
+    "placeholder": "例如：可以在我电脑上运行、帮我编程的模型",
+    "understood": "我们从你的问题中理解到：",
+    "onlyWords": "在名称和描述中搜索",
+    "examplesTitle": "试试这些问题：",
+    "examples": [
+      "可以在我电脑上本地运行、帮我编程的中国模型",
+      "能理解图片和视频的模型",
+      "可下载、适合长文档的模型"
+    ],
+    "uses": {
+      "coding": "编程",
+      "agents": "智能体任务",
+      "longdocs": "长文档",
+      "office": "办公",
+      "research": "研究",
+      "writing": "写作与对话",
+      "reasoning": "推理与数学",
+      "creative": "设计与创意"
+    },
+    "modalities": {
+      "image": "理解图像",
+      "video": "理解视频"
+    },
+    "open": "可下载",
+    "company": "来自你指定的公司",
+    "text": "匹配你的关键词",
+    "why": "匹配原因",
+    "note": "搜索可理解中文、阿拉伯语和英语中的常用词。如果没有找到想要的结果，请换用更简单的词。",
+    "homeTitle": "用问题搜索",
+    "homeButton": "搜索"
   }
 }

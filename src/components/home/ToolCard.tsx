@@ -4,7 +4,9 @@ import type { Tool } from "@/content/tools";
 import ToolFacts from "@/components/explore/ToolFacts";
 import { fmt } from "@/lib/text";
 
-export default function ToolCard({ tool, lang, dict }: { tool: Tool; lang: Locale; dict: Dictionary }) {
+type Props = { tool: Tool; lang: Locale; dict: Dictionary; /** Search reasons, shown as "why it matches". */ reasons?: string[] };
+
+export default function ToolCard({ tool, lang, dict, reasons = [] }: Props) {
   const unverified = tool.status !== "verified";
   return (
     <article className="tool">
@@ -19,6 +21,12 @@ export default function ToolCard({ tool, lang, dict }: { tool: Tool; lang: Local
       </header>
       <p>{tool.summary[lang]}</p>
       <ToolFacts tool={tool} dict={dict} />
+      {reasons.length > 0 && (
+        <div>
+          <span className="sr-only">{dict.search.why}</span>
+          <ul className="why">{reasons.map((r) => <li key={r}>{r}</li>)}</ul>
+        </div>
+      )}
       <footer className="tool-foot">
         <small>{fmt(dict.tools.checked, { d: tool.lastChecked })}</small>
       </footer>
