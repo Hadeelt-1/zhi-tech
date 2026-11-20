@@ -419,7 +419,7 @@
     "lessonsDesc": "Six lessons in order, each with five kinds of exercises. Your progress is saved to your account.",
     "vocabDesc": "Every term with pinyin, Arabic and English, an example in a technical context, and related terms.",
     "nextTitle": "Being built next",
-    "nextText": "The AI conversation tutor and the personal dictionary."
+    "nextText": "An AI conversation tutor and periodic review tests."
   },
   "dash": {
     "title": "My learning",
@@ -492,5 +492,46 @@
     ],
     "loadFailed": "Goals could not be loaded. Please try again later.",
     "open": "Open my learning dashboard"
+  },
+  "mydict": {
+    "title": "My dictionary",
+    "sub": "Save terms from the library, add your own words, and export everything to a file that opens in Excel or Google Sheets.",
+    "hubDesc": "The terms you saved and the words you added yourself, ready to export.",
+    "loading": "Loading your dictionary…",
+    "signedOut": "Log in to use your personal dictionary.",
+    "login": "Log in",
+    "add": "Add to my dictionary",
+    "added": "In my dictionary",
+    "open": "Open my dictionary",
+    "loginToAdd": "Log in to add it to your dictionary",
+    "count": "Words: {n}",
+    "empty": "Your dictionary is empty. Save terms from the term library, or add a new word.",
+    "browse": "Browse terms",
+    "newTitle": "Add a new word",
+    "zh": "Word in Chinese",
+    "pinyin": "Pinyin (optional)",
+    "meaning": "Meaning",
+    "note": "Note (optional)",
+    "submit": "Add",
+    "cancel": "Cancel",
+    "addedMsg": "The word was added to your dictionary.",
+    "errRequired": "Please enter the Chinese word and its meaning.",
+    "errNotChinese": "The word must contain at least one Chinese character.",
+    "errGeneric": "Could not save. Please try again.",
+    "loadFailed": "Could not load your dictionary. Check your connection and reload the page.",
+    "remove": "Remove",
+    "removeLabel": "Remove {w} from my dictionary",
+    "export": "Export as CSV",
+    "exportNote": "The file opens in Excel, Google Sheets and Numbers.",
+    "fromLibrary": "From the library",
+    "own": "Added by me",
+    "csv": {
+      "zh": "Chinese",
+      "pinyin": "Pinyin",
+      "ar": "Arabic",
+      "en": "English",
+      "note": "Note",
+      "source": "Source"
+    }
   }
 }

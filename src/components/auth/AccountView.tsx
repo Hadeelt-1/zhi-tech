@@ -55,6 +55,7 @@ export default function AccountView({ lang, dict }: { lang: Locale; dict: Dictio
         </div>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
           <a className="btn pri" href={`/${lang}/dashboard`}>{dict.dash.open}</a>
+          <a className="btn" href={`/${lang}/learn/dictionary`}>{dict.mydict.open}</a>
           <button type="button" className="btn" onClick={signOut}>{a.signout}</button>
         </div>
       </header>

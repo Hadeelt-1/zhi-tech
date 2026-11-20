@@ -62,11 +62,6 @@ export default function Dashboard({ lang, dict }: { lang: Locale; dict: Dictiona
   const stats = computeStats(rows, LESSONS.map((l) => l.slug), favorites.length, activity);
 
   const startsSunday = lang === "ar";
-  const week = currentWeek(new Date(), startsSunday);
-  const weekDays = new Set(week.map(localDay));
-  const today = localDay(new Date());
-  const doneToday = activity.filter((d) => d === today).length;
-  const doneWeek = activity.filter((d) => weekDays.has(d)).length;
   const next = LESSONS.find((l) => (rows[l.slug]?.best ?? 0) < PASS_SCORE);
   const dayOrder = startsSunday ? [0, 1, 2, 3, 4, 5, 6] : [1, 2, 3, 4, 5, 6, 0];
 
@@ -80,6 +75,14 @@ export default function Dashboard({ lang, dict }: { lang: Locale; dict: Dictiona
       </div>
     );
   }
+
+  // Read the clock only here: this part runs in the browser after sign-in, never while the page is prerendered.
+  const now = new Date();
+  const week = currentWeek(now, startsSunday);
+  const weekDays = new Set(week.map(localDay));
+  const today = localDay(now);
+  const doneToday = activity.filter((d) => d === today).length;
+  const doneWeek = activity.filter((d) => weekDays.has(d)).length;
 
   const saveSettings = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -419,7 +419,7 @@
     "lessonsDesc": "六节循序渐进的课程，每课包含五种练习，进度保存在你的账户中。",
     "vocabDesc": "每个术语都附有拼音、阿拉伯语和英语释义、技术语境例句以及相关术语。",
     "nextTitle": "即将推出",
-    "nextText": "AI 对话导师和个人词典。"
+    "nextText": "AI 对话导师和定期复习测验。"
   },
   "dash": {
     "title": "学习面板",
@@ -492,5 +492,46 @@
     ],
     "loadFailed": "目标加载失败，请稍后再试。",
     "open": "打开学习面板"
+  },
+  "mydict": {
+    "title": "我的词典",
+    "sub": "收藏词库中的术语，添加你自己的词语，并导出为可在 Excel 或 Google 表格中打开的文件。",
+    "hubDesc": "你收藏的术语和自己添加的词语，可随时导出。",
+    "loading": "正在加载你的词典…",
+    "signedOut": "登录后即可使用个人词典。",
+    "login": "登录",
+    "add": "加入我的词典",
+    "added": "已在我的词典中",
+    "open": "打开我的词典",
+    "loginToAdd": "登录后加入你的词典",
+    "count": "共 {n} 个词",
+    "empty": "你的词典目前为空。可以从术语库收藏术语，或添加新词。",
+    "browse": "浏览术语",
+    "newTitle": "添加新词",
+    "zh": "中文词语",
+    "pinyin": "拼音（选填）",
+    "meaning": "释义",
+    "note": "备注（选填）",
+    "submit": "添加",
+    "cancel": "取消",
+    "addedMsg": "已将该词加入你的词典。",
+    "errRequired": "请输入中文词语及其释义。",
+    "errNotChinese": "词语中至少需要包含一个汉字。",
+    "errGeneric": "保存失败，请重试。",
+    "loadFailed": "无法加载你的词典。请检查网络连接后刷新页面。",
+    "remove": "删除",
+    "removeLabel": "从我的词典中删除{w}",
+    "export": "导出为 CSV",
+    "exportNote": "该文件可在 Excel、Google 表格和 Numbers 中打开。",
+    "fromLibrary": "来自术语库",
+    "own": "自己添加",
+    "csv": {
+      "zh": "中文",
+      "pinyin": "拼音",
+      "ar": "阿拉伯语",
+      "en": "英语",
+      "note": "备注",
+      "source": "来源"
+    }
   }
 }

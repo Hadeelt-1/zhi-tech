@@ -6,6 +6,7 @@ import { getTerm, TERMS } from "@/content/terms";
 import { TOOLS } from "@/content/tools";
 import ToolCard from "@/components/home/ToolCard";
 import ListenButton from "@/components/learn/ListenButton";
+import AddToDictionaryButton from "@/components/learn/AddToDictionaryButton";
 
 type Params = Promise<{ lang: string; slug: string }>;
 
@@ -45,6 +46,7 @@ export default async function TermPage({ params }: { params: Params }) {
           </p>
           <div className="tp-actions">
             <ListenButton text={term.zh} label={l.listen} />
+            <AddToDictionaryButton slug={term.slug} lang={lang} dict={dict} />
           </div>
         </header>
 
