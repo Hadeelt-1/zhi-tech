@@ -11,7 +11,7 @@ export const TOP_LINKS: { key: TopLinkKey; href: string }[] = [
   { key: "home", href: "" },
   { key: "tools", href: "/explore" },
   { key: "companies", href: "/explore/companies" },
-  { key: "learn", href: "/learn/vocabulary" },
+  { key: "learn", href: "/learn" },
   { key: "build", href: "#build" },
 ];
 

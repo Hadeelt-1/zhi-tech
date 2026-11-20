@@ -377,5 +377,48 @@
     "reviewText": "Translations, examples and levels are drafts and will be reviewed by the editor.",
     "suggestedLevel": "Suggested level",
     "openTerm": "Open in the vocabulary library"
+  },
+  "lessons": {
+    "title": "Lessons",
+    "sub": "Short lessons in order. Each one teaches a group of related terms, then checks what you learned with five kinds of exercises.",
+    "lesson": "Lesson {n}",
+    "terms": "Terms: {n}",
+    "start": "Start lesson",
+    "studyTitle": "Study the terms",
+    "studyText": "Read each term and its example, then start the exercises.",
+    "practice": "Start the exercises",
+    "kinds": {
+      "mc": "Choose the right meaning",
+      "zh2ar": "Choose the right translation of the sentence",
+      "ar2zh": "Choose the right Chinese word",
+      "fill": "Fill in the blank",
+      "order": "Put the words in order"
+    },
+    "tapWords": "Tap the words in the right order. Tap a chosen word to remove it.",
+    "meaning": "Meaning",
+    "check": "Check",
+    "next": "Next",
+    "finish": "See result",
+    "correct": "Correct.",
+    "wrong": "Not quite. The answer is: {a}",
+    "result": "You got {s} of {m}.",
+    "retry": "Try again",
+    "nextLesson": "Next lesson",
+    "allLessons": "All lessons",
+    "saved": "Your progress is saved.",
+    "saveFailed": "Your result could not be saved. Please try again later.",
+    "loginToSave": "Log in to save your progress.",
+    "best": "Best score: {s}%",
+    "done": "Completed",
+    "question": "Question {n} of {m}",
+    "reviewNote": "Lesson content is a draft and will be reviewed by the editor."
+  },
+  "learnHub": {
+    "title": "Learn",
+    "sub": "Chinese for tech and AI: lessons in order, a searchable vocabulary library, and exercises in every lesson.",
+    "lessonsDesc": "Six lessons in order, each with five kinds of exercises. Your progress is saved to your account.",
+    "vocabDesc": "Every term with pinyin, Arabic and English, an example in a technical context, and related terms.",
+    "nextTitle": "Being built next",
+    "nextText": "The AI conversation tutor and the learning dashboard (points, badges and goals)."
   }
 }

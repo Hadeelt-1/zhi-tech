@@ -309,6 +309,21 @@ html[data-lang="zh"] { --ff: var(--font-zh); --hf: var(--font-zh); }
   .ex-py { font-size: 16px; }
   .listen-sm { flex: none; }
 
+  /* lessons */
+  .lesson-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .lesson-card { flex-direction: row; align-items: flex-start; gap: 18px; }
+  .lesson-num { flex: none; width: 48px; height: 48px; border-radius: 50%; border: 3px solid var(--accent); display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-en-head); font-weight: 700; font-size: 20px; }
+  .lesson-body { display: grid; gap: 6px; }
+  .lesson-body h2 { font-size: clamp(22px, 2.4vw, 28px); }
+  .lesson-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 4px; }
+  .pill-done { border-color: var(--fg); }
+  .study-zh { font-family: var(--font-zh); font-size: 36px; font-weight: 700; line-height: 1.15; }
+  .study-ex { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 4px; display: grid; gap: 2px; }
+  .qterm-ar { font-family: var(--font-ar); font-size: clamp(32px, 4.4vw, 48px); }
+  .opt-zh { font-family: var(--font-zh); font-size: 22px; }
+  .order-answer { min-height: 60px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px; border: 2px dashed var(--line); border-radius: 14px; background: var(--bg); }
+  .order-answer .chip, .order-chip { font-family: var(--font-zh); font-size: 20px; }
+
   /* empty states, notes */
   .empty { display: grid; gap: 12px; justify-items: start; }
   .pill { display: inline-block; border: 1.5px solid var(--accent); border-radius: 99px; padding: 2px 12px; font-size: 14px; font-weight: 700; }
