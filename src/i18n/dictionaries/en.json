@@ -236,5 +236,31 @@
     "back": "All companies",
     "all": "All companies",
     "review": "This profile is a draft built from the official sources below and has not been checked by the editor yet."
+  },
+  "categories": {
+    "title": "Categories",
+    "sub": "Browse models, tools and companies by field.",
+    "count": "Entries: {n}",
+    "empty": "No entries in this category yet",
+    "emptyText": "Entries are added here after they are checked against official sources.",
+    "others": "Other categories",
+    "back": "All categories",
+    "all": "All categories",
+    "filter": "Category",
+    "viewCompanies": "View all companies"
+  },
+  "compare": {
+    "title": "Compare models",
+    "sub": "Choose two to four models to compare their capabilities and use cases side by side.",
+    "pick": "Choose models",
+    "max": "You can compare up to 4 models.",
+    "need": "Choose at least two models to start the comparison.",
+    "clear": "Clear selection",
+    "remove": "Remove {name}",
+    "feature": "Feature",
+    "status": "Information status",
+    "verified": "Verified",
+    "button": "Compare models",
+    "compareThis": "Compare with other models"
   }
 }

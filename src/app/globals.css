@@ -248,6 +248,26 @@ html[data-lang="zh"] { --ff: var(--font-zh); --hf: var(--font-zh); }
   .ex-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 15px; font-weight: 700; }
   .ex-clear { background: transparent; border: 0; padding: 0 4px; min-height: 44px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
 
+  /* comparison table */
+  .chip:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+  .cmp-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--bg); }
+  .cmp { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 640px; font-size: 16px; }
+  .cmp th, .cmp td { padding: 14px 16px; text-align: start; vertical-align: top; border-bottom: 1px solid var(--line); }
+  .cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
+  .cmp thead th { background: var(--surface); font-family: var(--font-en-head); font-size: 19px; white-space: nowrap; }
+  .cmp thead th:first-child { font-family: var(--hf); font-size: 16px; }
+  .cmp th[scope="row"] { font-weight: 700; width: 170px; min-width: 150px; }
+  .cmp td { min-width: 200px; }
+  /* Feature column stays visible while scrolling sideways. */
+  .cmp th:first-child { position: sticky; inset-inline-start: 0; z-index: 1; background: var(--bg); border-inline-end: 1px solid var(--line); }
+  /* Tinted but opaque, so scrolled columns don't show through. */
+  .cmp thead th:first-child { background: linear-gradient(var(--surface2), var(--surface2)), var(--bg); }
+  .cmp-name { text-decoration-color: var(--accent); text-underline-offset: 4px; }
+  .cmp-remove { margin-inline-start: 10px; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--fg); background: transparent; font-size: 18px; line-height: 1; vertical-align: middle; }
+  @media (hover: hover) { .cmp-remove:hover { background: var(--surface2); } }
+  .cmp-list { margin: 0; padding-inline-start: 18px; display: grid; gap: 6px; }
+  .cmp-list li::marker { color: var(--accent); }
+
   /* empty states, notes */
   .empty { display: grid; gap: 12px; justify-items: start; }
   .pill { display: inline-block; border: 1.5px solid var(--accent); border-radius: 99px; padding: 2px 12px; font-size: 14px; font-weight: 700; }

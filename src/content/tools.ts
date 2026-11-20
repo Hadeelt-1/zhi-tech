@@ -8,6 +8,8 @@
 // - Summaries in Arabic and Chinese are AI drafts and need review too.
 // - Fields mirror the planned `tools` table so this moves to Supabase as is.
 
+import type { CategorySlug } from "./categories";
+
 export type ToolStatus = "draft" | "needs_review" | "verified";
 export type ToolType = "model" | "tool" | "app" | "project" | "framework";
 export type Runtime = "local" | "api" | "cloud";
@@ -20,6 +22,8 @@ export type Tool = {
   slug: string;
   name: string;
   type: ToolType;
+  /** Mirrors the tool_categories table. */
+  categories: CategorySlug[];
   /** Company slug, matches the companies list. */
   company: string;
   companyName: string;
@@ -51,6 +55,7 @@ export const TOOLS: Tool[] = [
     slug: "deepseek-v4-pro",
     name: "DeepSeek-V4-Pro",
     type: "model",
+    categories: ["ai-models", "local-ai"],
     company: "deepseek",
     companyName: "DeepSeek",
     license: { kind: "open_weight", name: "MIT" },
@@ -92,6 +97,7 @@ export const TOOLS: Tool[] = [
     slug: "kimi-k3",
     name: "Kimi K3",
     type: "model",
+    categories: ["ai-models", "local-ai"],
     company: "moonshot-ai",
     companyName: "Moonshot AI",
     license: { kind: "open_weight", name: "Kimi K3 License" },
@@ -133,6 +139,7 @@ export const TOOLS: Tool[] = [
     slug: "glm-5-1",
     name: "GLM-5.1",
     type: "model",
+    categories: ["ai-models", "local-ai"],
     company: "zhipu-ai",
     companyName: "Z.ai (Zhipu AI)",
     license: { kind: "open_weight", name: "MIT" },
@@ -171,6 +178,7 @@ export const TOOLS: Tool[] = [
     slug: "qwen3-8-27b",
     name: "Qwen3.8-27B",
     type: "model",
+    categories: ["ai-models", "local-ai"],
     company: "alibaba",
     companyName: "Alibaba (Qwen)",
     license: { kind: "open_weight", name: "Apache 2.0" },
@@ -209,6 +217,7 @@ export const TOOLS: Tool[] = [
     slug: "minimax-m3",
     name: "MiniMax-M3",
     type: "model",
+    categories: ["ai-models", "local-ai"],
     company: "minimax",
     companyName: "MiniMax",
     license: { kind: "open_weight", name: "MiniMax Community License" },
@@ -250,6 +259,7 @@ export const TOOLS: Tool[] = [
     slug: "hy3",
     name: "Hy3",
     type: "model",
+    categories: ["ai-models", "local-ai"],
     company: "tencent",
     companyName: "Tencent (Hunyuan)",
     license: { kind: "open_weight", name: "Apache 2.0" },
@@ -290,6 +300,7 @@ export const TOOLS: Tool[] = [
     slug: "seed-2-1",
     name: "Seed2.1 (Doubao Seed 2.1)",
     type: "model",
+    categories: ["ai-models"],
     company: "bytedance",
     companyName: "ByteDance (Seed)",
     license: { kind: "not_stated", name: "—" },
@@ -326,6 +337,7 @@ export const TOOLS: Tool[] = [
     slug: "ernie-5-5-flash-preview",
     name: "ERNIE 5.5 Flash (Preview)",
     type: "model",
+    categories: ["ai-models"],
     company: "baidu",
     companyName: "Baidu",
     license: { kind: "not_stated", name: "—" },

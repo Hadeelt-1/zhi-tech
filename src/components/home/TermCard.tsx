@@ -5,9 +5,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/get-dictionary";
 import { SAMPLE_TERMS } from "@/content/sample-terms";
 import { fmt, forwardArrow } from "@/lib/text";
-
-/** Event the categories section listens to, so a term can select its category. */
-export const SELECT_CATEGORY_EVENT = "zhi:select-category";
+import { categoryByIndex, categoryHref } from "@/content/categories";
 
 export default function TermCard({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const [index, setIndex] = useState(0);
@@ -38,8 +36,7 @@ export default function TermCard({ lang, dict }: { lang: Locale; dict: Dictionar
       {term.cat >= 0 && (
         <a
           className="tlink"
-          href="#categories"
-          onClick={() => window.dispatchEvent(new CustomEvent(SELECT_CATEGORY_EVENT, { detail: term.cat }))}
+          href={categoryByIndex(term.cat) ? categoryHref(lang, categoryByIndex(term.cat)!.slug) : `/${lang}/explore/categories`}
         >
           {dict.hero.exploreIn} {dict.cats.items[term.cat]}
           {forwardArrow(lang)}

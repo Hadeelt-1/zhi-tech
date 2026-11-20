@@ -27,6 +27,10 @@ export default async function ExplorePage({ params }: { params: Params }) {
         <header className="ex-head">
           <h1 className="sec-title" style={{ fontSize: "clamp(32px, 4.4vw, 52px)" }}>{dict.explore.title}</h1>
           <p className="sub">{dict.explore.sub}</p>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 24 }}>
+            <a className="btn pri" href={`/${lang}/explore/compare`}>{dict.compare.button}</a>
+            <a className="btn" href={`/${lang}/explore/categories`}>{dict.categories.all}</a>
+          </div>
         </header>
         <p className="note" style={{ marginTop: 0, marginBottom: 20 }}>{dict.tools.note}</p>
         {/* Filters read the URL, so they render in the browser; the fallback lists everything. */}

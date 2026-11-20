@@ -58,6 +58,7 @@ export default async function ToolPage({ params }: { params: Params }) {
           <p className="tool-co" lang="en" dir="ltr">{tool.companyName}</p>
           <h1 lang="en" dir="ltr">{tool.name}</h1>
           <p className="sub">{tool.summary[lang]}</p>
+          <a className="btn" href={`/${lang}/explore/compare?tools=${tool.slug}`} style={{ marginTop: 20 }}>{dict.compare.compareThis}</a>
         </header>
 
         {tool.status !== "verified" && (
