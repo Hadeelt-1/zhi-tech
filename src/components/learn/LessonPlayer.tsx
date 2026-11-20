@@ -106,7 +106,7 @@ export default function LessonPlayer({
           <p>{fmt(L.result, { s: score, m: exercises.length })}</p>
           {supabaseConfigured && (
             <p className="note" style={{ marginTop: 0 }}>
-              {!user ? <a href={`/${lang}/login`}>{L.loginToSave}</a> : saveState === "saved" ? L.saved : saveState === "failed" ? L.saveFailed : dict.auth.wait}
+              {!user ? <a href={`/${lang}/login`}>{L.loginToSave}</a> : saveState === "saved" ? <>{L.saved} <a href={`/${lang}/dashboard`}>{dict.dash.open}</a></> : saveState === "failed" ? L.saveFailed : dict.auth.wait}
             </p>
           )}
           <div className="tp-actions" style={{ justifyContent: "center" }}>

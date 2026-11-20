@@ -38,6 +38,10 @@ export default async function LearnHub({ params }: { params: Params }) {
             <p>{h.vocabDesc}</p>
             <footer className="tool-foot"><small>{fmt(dict.lessons.terms, { n: TERMS.length })}</small></footer>
           </article>
+          <article className="tool">
+            <h2 style={{ fontSize: 26 }}><a className="tool-name" href={`/${lang}/dashboard`}>{dict.dash.title}</a></h2>
+            <p>{dict.dash.sub}</p>
+          </article>
         </div>
         <div className="detail" style={{ marginTop: 24 }}>
           <b>{h.nextTitle}</b>

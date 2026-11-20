@@ -419,6 +419,78 @@
     "lessonsDesc": "Six lessons in order, each with five kinds of exercises. Your progress is saved to your account.",
     "vocabDesc": "Every term with pinyin, Arabic and English, an example in a technical context, and related terms.",
     "nextTitle": "Being built next",
-    "nextText": "The AI conversation tutor and the learning dashboard (points, badges and goals)."
+    "nextText": "The AI conversation tutor and the personal dictionary."
+  },
+  "dash": {
+    "title": "My learning",
+    "sub": "Your level, progress, goals and badges, calculated from your lesson results.",
+    "signedOut": "Log in to see your learning dashboard.",
+    "level": "Level",
+    "levels": {
+      "notStarted": "Getting started",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "progress": "Progress",
+    "progressText": "{p} of {t} lessons passed",
+    "points": "Points",
+    "pointsText": "out of {m}",
+    "next": "Continue with",
+    "nextDone": "You have finished all lessons. You can retry any lesson to improve your score.",
+    "startFirst": "Start the first lesson",
+    "goals": "Goals",
+    "today": "Today",
+    "thisWeek": "This week",
+    "goalText": "{d} of {t} lessons",
+    "goalMet": "Goal reached",
+    "editGoals": "Edit goals and study days",
+    "dailyTarget": "Lessons per day",
+    "weeklyTarget": "Lessons per week",
+    "studyDays": "Study days",
+    "save": "Save",
+    "saved": "Saved.",
+    "schedule": "This week",
+    "planned": "Study day",
+    "studied": "Studied",
+    "badges": "Badges",
+    "earned": "Earned",
+    "locked": "Not earned yet",
+    "badgeNames": {
+      "firstLesson": "First lesson",
+      "perfect": "Perfect score",
+      "halfway": "Halfway there",
+      "allLessons": "All lessons done",
+      "explorer": "Explorer",
+      "persistent": "Persistent",
+      "streak3": "Three days in a row"
+    },
+    "badgeHow": {
+      "firstLesson": "Pass your first lesson (60% or more).",
+      "perfect": "Get 100% in any lesson.",
+      "halfway": "Pass half of the lessons.",
+      "allLessons": "Pass every lesson.",
+      "explorer": "Save 3 models or tools to your favorites.",
+      "persistent": "Make 10 lesson attempts.",
+      "streak3": "Practice on three days in a row."
+    },
+    "rulesTitle": "How these numbers are calculated",
+    "rules": [
+      "A lesson counts as passed with a score of 60% or more.",
+      "Points are the total of your best score in each lesson (up to 100 per lesson).",
+      "Level: Beginner after your first passed lesson, Intermediate after 3, Advanced when all lessons are passed.",
+      "Goals count every lesson attempt, using your device's date."
+    ],
+    "days": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "loadFailed": "Goals could not be loaded. Please try again later.",
+    "open": "Open my learning dashboard"
   }
 }

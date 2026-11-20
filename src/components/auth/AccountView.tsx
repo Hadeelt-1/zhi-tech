@@ -53,7 +53,10 @@ export default function AccountView({ lang, dict }: { lang: Locale; dict: Dictio
           </h1>
           <p className="muted" dir="ltr" style={{ textAlign: "start" }}>{user.email}</p>
         </div>
-        <button type="button" className="btn" onClick={signOut}>{a.signout}</button>
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <a className="btn pri" href={`/${lang}/dashboard`}>{dict.dash.open}</a>
+          <button type="button" className="btn" onClick={signOut}>{a.signout}</button>
+        </div>
       </header>
 
       <section className="tp-related" style={{ marginTop: 32 }}>

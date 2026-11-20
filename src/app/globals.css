@@ -324,6 +324,28 @@ html[data-lang="zh"] { --ff: var(--font-zh); --hf: var(--font-zh); }
   .order-answer { min-height: 60px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 10px; border: 2px dashed var(--line); border-radius: 14px; background: var(--bg); }
   .order-answer .chip, .order-chip { font-family: var(--font-zh); font-size: 20px; }
 
+  /* learning dashboard */
+  .dash-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px; }
+  .dash-label { font-size: 15px; font-weight: 700; opacity: .85; }
+  .dash-big { font-family: var(--hf); font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; }
+  .dash-goals { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 14px; }
+  .dash-week { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+  .dash-day { border: 1px solid var(--line); border-radius: 14px; padding: 10px 6px; display: grid; justify-items: center; gap: 2px; text-align: center; background: var(--bg); min-height: 96px; }
+  .dash-day.planned { border-color: var(--fg); }
+  .dash-day.studied { background: var(--pbg); color: var(--pfg); border-color: var(--pbg); }
+  .dash-day.today { box-shadow: inset 0 -4px 0 var(--accent); }
+  .dash-dayname { font-size: 13px; font-weight: 700; }
+  .dash-daynum { font-family: var(--font-en-head); font-size: 22px; font-weight: 700; }
+  .dash-daystate { font-size: 12px; font-weight: 700; }
+  @media (max-width: 560px) { .dash-daystate { display: none; } .dash-day { min-height: 70px; } }
+  .day-check { gap: 8px; cursor: pointer; }
+  .day-check input { width: 18px; height: 18px; accent-color: var(--fg); }
+  .dash-badges { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+  .dash-badge { opacity: .7; }
+  /* Earned: Tomato ring (a shape), never Tomato text. */
+  .dash-badge.earned { opacity: 1; border: 2px solid var(--accent); background: var(--bg); }
+  .dash-badge-icon { font-size: 28px; line-height: 1; }
+
   /* empty states, notes */
   .empty { display: grid; gap: 12px; justify-items: start; }
   .pill { display: inline-block; border: 1.5px solid var(--accent); border-radius: 99px; padding: 2px 12px; font-size: 14px; font-weight: 700; }

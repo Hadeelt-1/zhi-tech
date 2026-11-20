@@ -47,6 +47,8 @@ export function useLessonProgress() {
         { onConflict: "user_id,lesson_slug" },
       );
       if (error) return false;
+      // Activity log for goals and the weekly schedule (table from migration 0003).
+      await supabase.from("learning_activity").insert({ lesson_slug: lesson, score });
       setData((d) => ({ owner: userId, rows: { ...(d?.owner === userId ? d.rows : {}), [lesson]: next } }));
       return true;
     },

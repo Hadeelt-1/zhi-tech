@@ -419,6 +419,78 @@
     "lessonsDesc": "六节循序渐进的课程，每课包含五种练习，进度保存在你的账户中。",
     "vocabDesc": "每个术语都附有拼音、阿拉伯语和英语释义、技术语境例句以及相关术语。",
     "nextTitle": "即将推出",
-    "nextText": "AI 对话导师和学习面板（积分、徽章与目标）。"
+    "nextText": "AI 对话导师和个人词典。"
+  },
+  "dash": {
+    "title": "学习面板",
+    "sub": "根据课程成绩计算的级别、进度、目标和徽章。",
+    "signedOut": "登录后查看学习面板。",
+    "level": "级别",
+    "levels": {
+      "notStarted": "起步",
+      "beginner": "初级",
+      "intermediate": "中级",
+      "advanced": "高级"
+    },
+    "progress": "进度",
+    "progressText": "已通过 {p} / {t} 节课",
+    "points": "积分",
+    "pointsText": "满分 {m}",
+    "next": "继续学习",
+    "nextDone": "你已完成全部课程，可以重新学习任意一课来提高成绩。",
+    "startFirst": "开始第一课",
+    "goals": "目标",
+    "today": "今天",
+    "thisWeek": "本周",
+    "goalText": "已完成 {d} / {t}",
+    "goalMet": "已达成目标",
+    "editGoals": "修改目标和学习日",
+    "dailyTarget": "每天课程数",
+    "weeklyTarget": "每周课程数",
+    "studyDays": "学习日",
+    "save": "保存",
+    "saved": "已保存。",
+    "schedule": "本周",
+    "planned": "学习日",
+    "studied": "已学习",
+    "badges": "徽章",
+    "earned": "已获得",
+    "locked": "尚未获得",
+    "badgeNames": {
+      "firstLesson": "第一课",
+      "perfect": "满分",
+      "halfway": "完成一半",
+      "allLessons": "全部完成",
+      "explorer": "探索者",
+      "persistent": "坚持不懈",
+      "streak3": "连续三天"
+    },
+    "badgeHow": {
+      "firstLesson": "以 60% 或以上的成绩通过第一课。",
+      "perfect": "任意一课获得 100%。",
+      "halfway": "通过一半的课程。",
+      "allLessons": "通过所有课程。",
+      "explorer": "收藏 3 个模型或工具。",
+      "persistent": "完成 10 次课程练习。",
+      "streak3": "连续三天练习。"
+    },
+    "rulesTitle": "这些数字如何计算",
+    "rules": [
+      "课程成绩达到 60% 或以上即为通过。",
+      "积分为每课最高成绩之和（每课最多 100 分）。",
+      "级别：通过第一课后为初级，通过 3 课后为中级，全部通过后为高级。",
+      "目标按每次课程练习计算，以你设备上的日期为准。"
+    ],
+    "days": [
+      "周日",
+      "周一",
+      "周二",
+      "周三",
+      "周四",
+      "周五",
+      "周六"
+    ],
+    "loadFailed": "目标加载失败，请稍后再试。",
+    "open": "打开学习面板"
   }
 }
