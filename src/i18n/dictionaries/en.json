@@ -344,5 +344,38 @@
     "note": "Search understands common words in Arabic, English and Chinese. If you do not find what you need, try simpler words.",
     "homeTitle": "Search with a question",
     "homeButton": "Search"
+  },
+  "learn": {
+    "vocabTitle": "Technical vocabulary",
+    "vocabSub": "Chinese terms used in tech and AI, with pinyin, Arabic and English, examples and related terms.",
+    "search": "Search in Chinese, pinyin, Arabic or English",
+    "domain": "Field",
+    "level": "Level",
+    "all": "All",
+    "domains": {
+      "programming": "Programming",
+      "ai": "Artificial intelligence",
+      "networking": "Networking",
+      "cybersecurity": "Cybersecurity",
+      "software-engineering": "Software engineering",
+      "developer-tools": "Developer tools"
+    },
+    "levels": {
+      "beginner": "Beginner · HSK 1–3",
+      "intermediate": "Intermediate · HSK 4–6",
+      "advanced": "Advanced · HSK 7–9"
+    },
+    "levelNote": "Levels are suggested and will be checked against the official HSK word lists.",
+    "count": "{n} of {m} terms",
+    "none": "No terms match.",
+    "examples": "Examples in a technical context",
+    "related": "Related terms",
+    "tools": "Explore related models",
+    "listen": "Listen",
+    "listenExample": "Listen to the example",
+    "back": "All terms",
+    "reviewText": "Translations, examples and levels are drafts and will be reviewed by the editor.",
+    "suggestedLevel": "Suggested level",
+    "openTerm": "Open in the vocabulary library"
   }
 }

@@ -6,6 +6,7 @@ import type { Dictionary } from "@/i18n/get-dictionary";
 import { SAMPLE_TERMS } from "@/content/sample-terms";
 import { fmt, forwardArrow } from "@/lib/text";
 import { categoryByIndex, categoryHref } from "@/content/categories";
+import { TERMS } from "@/content/terms";
 
 export default function TermCard({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const [index, setIndex] = useState(0);
@@ -39,6 +40,12 @@ export default function TermCard({ lang, dict }: { lang: Locale; dict: Dictionar
           href={categoryByIndex(term.cat) ? categoryHref(lang, categoryByIndex(term.cat)!.slug) : `/${lang}/explore/categories`}
         >
           {dict.hero.exploreIn} {dict.cats.items[term.cat]}
+          {forwardArrow(lang)}
+        </a>
+      )}
+      {TERMS.some((x) => x.zh === term.zh) && (
+        <a className="tlink" href={`/${lang}/learn/vocabulary/${TERMS.find((x) => x.zh === term.zh)!.slug}`}>
+          {dict.learn.openTerm}
           {forwardArrow(lang)}
         </a>
       )}

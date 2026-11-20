@@ -11,7 +11,7 @@ export const TOP_LINKS: { key: TopLinkKey; href: string }[] = [
   { key: "home", href: "" },
   { key: "tools", href: "/explore" },
   { key: "companies", href: "/explore/companies" },
-  { key: "learn", href: "#try" },
+  { key: "learn", href: "/learn/vocabulary" },
   { key: "build", href: "#build" },
 ];
 
@@ -28,6 +28,7 @@ export const HOME_SECTIONS = [
 /** Which header link is current, from the path and (on the homepage) the section in view. */
 export function currentLink(pathname: string, sectionInView: string | null): TopLinkKey | null {
   const rest = pathname.replace(/^\/(ar|en|zh)(?=\/|$)/, "");
+  if (rest.startsWith("/learn")) return "learn";
   if (rest.startsWith("/explore/companies")) return "companies";
   if (rest.startsWith("/explore")) return "tools";
   if (rest === "" || rest === "/") {

@@ -294,6 +294,21 @@ html[data-lang="zh"] { --ff: var(--font-zh); --hf: var(--font-zh); }
   .home-search-row { display: flex; gap: 10px; flex-wrap: wrap; max-width: 760px; }
   .home-search-row .search { flex: 1 1 280px; margin-bottom: 0; }
 
+  /* vocabulary */
+  .term-card h3.term-zh { font-family: var(--font-zh); font-size: 34px; line-height: 1.15; }
+  .term-py { font-size: 17px; margin-top: 4px; }
+  .term-meaning { display: grid; gap: 2px; font-size: 18px; font-weight: 700; }
+  .term-meaning .muted { font-size: 15px; font-weight: 500; }
+  .term-big { font-family: var(--font-zh) !important; font-size: clamp(56px, 9vw, 96px) !important; line-height: 1.1; }
+  .term-py-big { font-size: clamp(22px, 2.6vw, 28px); margin-top: 6px; }
+  .term-meaning-big { display: grid; gap: 4px; margin-top: 10px; font-size: clamp(22px, 2.4vw, 28px); font-weight: 700; }
+  .term-meaning-big .muted { font-size: 18px; font-weight: 500; }
+  .ex-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .ex-zh-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .ex-zh { font-family: var(--font-zh); font-size: clamp(22px, 2.6vw, 28px); font-weight: 700; line-height: 1.4; }
+  .ex-py { font-size: 16px; }
+  .listen-sm { flex: none; }
+
   /* empty states, notes */
   .empty { display: grid; gap: 12px; justify-items: start; }
   .pill { display: inline-block; border: 1.5px solid var(--accent); border-radius: 99px; padding: 2px 12px; font-size: 14px; font-weight: 700; }

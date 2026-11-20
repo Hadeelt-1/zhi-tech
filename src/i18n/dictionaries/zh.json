@@ -344,5 +344,38 @@
     "note": "搜索可理解中文、阿拉伯语和英语中的常用词。如果没有找到想要的结果，请换用更简单的词。",
     "homeTitle": "用问题搜索",
     "homeButton": "搜索"
+  },
+  "learn": {
+    "vocabTitle": "技术词汇",
+    "vocabSub": "科技与人工智能领域常用的中文术语，附拼音、阿拉伯语和英语释义、例句及相关术语。",
+    "search": "用中文、拼音、阿拉伯语或英语搜索",
+    "domain": "领域",
+    "level": "级别",
+    "all": "全部",
+    "domains": {
+      "programming": "编程",
+      "ai": "人工智能",
+      "networking": "网络",
+      "cybersecurity": "网络安全",
+      "software-engineering": "软件工程",
+      "developer-tools": "开发者工具"
+    },
+    "levels": {
+      "beginner": "初级 · HSK 1–3",
+      "intermediate": "中级 · HSK 4–6",
+      "advanced": "高级 · HSK 7–9"
+    },
+    "levelNote": "级别为建议值，将对照 HSK 官方词表核实。",
+    "count": "显示 {n} / {m} 个术语",
+    "none": "没有匹配的术语。",
+    "examples": "技术语境例句",
+    "related": "相关术语",
+    "tools": "探索相关模型",
+    "listen": "朗读",
+    "listenExample": "朗读例句",
+    "back": "全部术语",
+    "reviewText": "译文、例句和级别为草稿，将由编辑审核。",
+    "suggestedLevel": "建议级别",
+    "openTerm": "在词汇库中查看"
   }
 }
