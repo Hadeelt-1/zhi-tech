@@ -55,5 +55,7 @@ export function useLessonProgress() {
     [rows, userId],
   );
 
-  return { user, ready, rows, save };
+  const loaded = ready && (!userId || data?.owner === userId);
+
+  return { user, ready, loaded, rows, save };
 }

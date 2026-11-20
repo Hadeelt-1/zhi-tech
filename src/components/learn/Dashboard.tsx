@@ -136,6 +136,10 @@ export default function Dashboard({ lang, dict }: { lang: Locale; dict: Dictiona
           <span>{D.nextDone}</span>
         )}
       </div>
+      <div className="tp-actions">
+        <a className="btn" href={`/${lang}/learn/review`}>{dict.review.open}</a>
+        <a className="btn" href={`/${lang}/learn/dictionary`}>{dict.mydict.open}</a>
+      </div>
 
       <section className="tp-related" style={{ marginTop: 40 }}>
         <h2 className="sec-title">{D.goals}</h2>

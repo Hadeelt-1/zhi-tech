@@ -419,7 +419,7 @@
     "lessonsDesc": "Six lessons in order, each with five kinds of exercises. Your progress is saved to your account.",
     "vocabDesc": "Every term with pinyin, Arabic and English, an example in a technical context, and related terms.",
     "nextTitle": "Being built next",
-    "nextText": "An AI conversation tutor and periodic review tests."
+    "nextText": "An AI conversation tutor."
   },
   "dash": {
     "title": "My learning",
@@ -533,5 +533,36 @@
       "note": "Note",
       "source": "Source"
     }
+  },
+  "review": {
+    "title": "Review tests",
+    "sub": "Periodic review of the terms you have studied, spaced further apart each time you answer correctly, so they stay in your memory.",
+    "hubDesc": "Short tests on what you studied, scheduled by how well you remember each term.",
+    "signedOut": "Log in to start review tests and keep their schedule.",
+    "loading": "Loading your review schedule…",
+    "loadFailed": "Some data could not be loaded. Check your connection and reload the page.",
+    "nothingYet": "There is nothing to review yet. Start a lesson or save terms in your dictionary, and they will appear here.",
+    "toLessons": "Go to lessons",
+    "dueToday": "Due for review today",
+    "inReview": "Terms in review",
+    "nextDate": "Next review",
+    "now": "Now",
+    "start": "Start review ({n} questions)",
+    "allDone": "You have finished today's review. Come back on the next date.",
+    "extra": "Practise now without changing the schedule",
+    "extraNote": "This was extra practice; the review schedule did not change.",
+    "saved": "Result saved and next review dates set.",
+    "saveFailed": "Could not save the result. Please try again later.",
+    "missed": "Terms to revisit:",
+    "back": "Back to review",
+    "open": "Review tests",
+    "rulesTitle": "How review works",
+    "rules": [
+      "Review includes the terms of every lesson you have started and the terms saved in your dictionary.",
+      "Each test has up to {n} questions of the five types, starting with the most overdue terms.",
+      "Each correct answer pushes the term's next review further away, in days: {a}.",
+      "A wrong answer brings the term back for review the next day.",
+      "Extra practice does not change the schedule."
+    ]
   }
 }

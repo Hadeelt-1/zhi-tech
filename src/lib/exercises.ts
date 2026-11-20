@@ -47,45 +47,62 @@ function distractors(term: Term, rand: () => number) {
 const meaning = (t: Term, lang: Locale) => (lang === "ar" ? t.ar : t.en);
 const sentenceMeaning = (t: Term, lang: Locale) => (lang === "ar" ? t.examples[0].ar : t.examples[0].en);
 
+/** One exercise of the given kind for one term. */
+function makeExercise(kind: ExerciseKind, term: Term, lang: Locale, rand: () => number): Exercise {
+  const meaningLang = lang === "ar" ? "ar" : "en";
+  const wrong = distractors(term, rand);
+  const ex = term.examples[0];
+
+  if (kind === "order") {
+    let chunks = shuffle(ex.order, rand);
+    // Never show the sentence already in order.
+    if (chunks.join("") === ex.order.join("")) chunks = [...chunks.slice(1), chunks[0]];
+    return { kind, term, chunks, answer: ex.order, translation: sentenceMeaning(term, lang) };
+  }
+
+  const options = shuffle([term, ...wrong], rand);
+  switch (kind) {
+    case "mc":
+      return {
+        kind, term, prompt: term.zh, promptLang: "zh" as const, hint: term.pinyin, answer: term.slug,
+        choices: options.map((t) => ({ id: t.slug, text: meaning(t, lang), lang: meaningLang })),
+      };
+    case "zh2ar":
+      return {
+        kind, term, prompt: ex.zh, promptLang: "zh" as const, hint: ex.pinyin, answer: term.slug,
+        choices: options.map((t) => ({ id: t.slug, text: sentenceMeaning(t, lang), lang: meaningLang })),
+      };
+    case "ar2zh":
+      return {
+        kind, term, prompt: term.ar, promptLang: "ar" as const, answer: term.slug,
+        choices: options.map((t) => ({ id: t.slug, text: t.zh, lang: "zh" as const, zhLatin: t.pinyin })),
+      };
+    default:
+      return {
+        kind, term, prompt: ex.zh.replace(term.zh, "＿＿＿"), promptLang: "zh" as const, hint: sentenceMeaning(term, lang), answer: term.slug,
+        choices: options.map((t) => ({ id: t.slug, text: t.zh, lang: "zh" as const, zhLatin: t.pinyin })),
+      };
+  }
+}
+
 export function buildExercises(terms: Term[], lang: Locale, seed: string): Exercise[] {
   const rand = rng(seed);
   const pool = shuffle(terms, rand);
-  const meaningLang = lang === "ar" ? "ar" : "en";
+  return KINDS.map((kind, i) => makeExercise(kind, pool[i % pool.length], lang, rand));
+}
 
-  return KINDS.map((kind, i) => {
-    const term = pool[i % pool.length];
-    const wrong = distractors(term, rand);
-    const ex = term.examples[0];
+/**
+ * Review round: one question per term, in random order, cycling through the five exercise types
+ * from a random starting type (so a term is not always tested the same way).
+ */
+export function buildReview(terms: Term[], lang: Locale, seed: string): Exercise[] {
+  const rand = rng(seed);
+  const pool = shuffle(terms, rand);
+  const start = Math.floor(rand() * KINDS.length);
+  return pool.map((term, i) => makeExercise(KINDS[(start + i) % KINDS.length], term, lang, rand));
+}
 
-    if (kind === "order") {
-      let chunks = shuffle(ex.order, rand);
-      // Never show the sentence already in order.
-      if (chunks.join("") === ex.order.join("")) chunks = [...chunks.slice(1), chunks[0]];
-      return { kind, term, chunks, answer: ex.order, translation: sentenceMeaning(term, lang) };
-    }
-
-    const options = shuffle([term, ...wrong], rand);
-    switch (kind) {
-      case "mc":
-        return {
-          kind, term, prompt: term.zh, promptLang: "zh" as const, hint: term.pinyin, answer: term.slug,
-          choices: options.map((t) => ({ id: t.slug, text: meaning(t, lang), lang: meaningLang })),
-        };
-      case "zh2ar":
-        return {
-          kind, term, prompt: ex.zh, promptLang: "zh" as const, hint: ex.pinyin, answer: term.slug,
-          choices: options.map((t) => ({ id: t.slug, text: sentenceMeaning(t, lang), lang: meaningLang })),
-        };
-      case "ar2zh":
-        return {
-          kind, term, prompt: term.ar, promptLang: "ar" as const, answer: term.slug,
-          choices: options.map((t) => ({ id: t.slug, text: t.zh, lang: "zh" as const, zhLatin: t.pinyin })),
-        };
-      default:
-        return {
-          kind, term, prompt: ex.zh.replace(term.zh, "＿＿＿"), promptLang: "zh" as const, hint: sentenceMeaning(term, lang), answer: term.slug,
-          choices: options.map((t) => ({ id: t.slug, text: t.zh, lang: "zh" as const, zhLatin: t.pinyin })),
-        };
-    }
-  });
+/** `n` items picked at random (repeatable for the same seed). */
+export function pickRandom<T>(list: T[], n: number, seed: string): T[] {
+  return shuffle(list, rng(seed)).slice(0, n);
 }

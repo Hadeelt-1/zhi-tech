@@ -43,6 +43,10 @@ export default async function LearnHub({ params }: { params: Params }) {
             <p>{dict.dash.sub}</p>
           </article>
           <article className="tool">
+            <h2 style={{ fontSize: 26 }}><a className="tool-name" href={`/${lang}/learn/review`}>{dict.review.title}</a></h2>
+            <p>{dict.review.hubDesc}</p>
+          </article>
+          <article className="tool">
             <h2 style={{ fontSize: 26 }}><a className="tool-name" href={`/${lang}/learn/dictionary`}>{dict.mydict.title}</a></h2>
             <p>{dict.mydict.hubDesc}</p>
           </article>
