@@ -123,6 +123,9 @@ export default function LoginForm({ lang, dict }: { lang: Locale; dict: Dictiona
         <button type="submit" className="btn pri" disabled={busy}>
           {busy ? a.wait : mode === "signin" ? a.signinBtn : a.signupBtn}
         </button>
+        {mode === "signin" && (
+          <a className="hintlink" href={`/${lang}/forgot-password`} style={{ marginTop: 0 }}>{a.forgot}</a>
+        )}
       </form>
     </div>
   );

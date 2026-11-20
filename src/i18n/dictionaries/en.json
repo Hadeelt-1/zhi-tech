@@ -296,6 +296,20 @@
     "noFavoritesText": "Open any model and choose “Save” to keep it here.",
     "save": "Save",
     "saved": "Saved",
-    "loginToSave": "Log in to save"
+    "loginToSave": "Log in to save",
+    "forgot": "Forgot your password?",
+    "forgotTitle": "Reset your password",
+    "forgotSub": "Enter the email you signed up with and we will send you a link to choose a new password.",
+    "sendLink": "Send reset link",
+    "resetSentTitle": "Check your email",
+    "resetSentText": "If an account uses this email, a link to reset the password is on its way. Open it on this device.",
+    "newTitle": "Choose a new password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm new password",
+    "savePassword": "Save new password",
+    "errMismatch": "The two passwords do not match.",
+    "errSame": "Please choose a password different from your current one.",
+    "passwordSaved": "Your password has been changed.",
+    "backToLogin": "Back to log in"
   }
 }
